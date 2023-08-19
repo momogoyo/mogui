@@ -1,0 +1,1 @@
+export type TextElement = keyof JSX.IntrinsicElements
