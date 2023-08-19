@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import TextChild from './Child'
 
-import type { TextElement } from '../../types/props-types'
+import type { NormalTypes, TextElement } from '../../types/props-types'
 
 interface TextProps {
   h1?: boolean
@@ -20,10 +20,30 @@ interface TextProps {
   blockquote?: boolean
   children?: React.ReactNode
   className?: string
+  type?: NormalTypes
 }
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean }
 type TextRenderableElements = Array<TextElement>
+
+const defaultProps = {
+  h1: false,
+  h2: false,
+  h3: false,
+  h4: false,
+  h5: false,
+  h6: false,
+  p: false,
+  b: false,
+  small: false,
+  i: false,
+  span: false,
+  del: false,
+  em: false,
+  blockquote: false,
+  className: '',
+  type: 'default' as NormalTypes
+}
 
 const TextComponent = ({
   h1,
@@ -43,7 +63,7 @@ const TextComponent = ({
   children,
   className,
   ...props
-}: TextProps) => {
+}: TextProps & typeof defaultProps) => {
   const elements: ElementMap = { h1, h2, h3, h4, h5, h6, p, blockquote }
   const inlineElements: ElementMap = { span, small, b, em, i, del }
   // @ts-ignore
