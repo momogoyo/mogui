@@ -12,7 +12,8 @@ export default function Home() {
       <div>
         <div>
           This is My First Material UI,
-          <Text h1>Mogui!</Text>
+          {/* @ts-ignore */}
+          <Text p type="success">Mogui!</Text>
           Please Enjoy
         </div>
       </div>
