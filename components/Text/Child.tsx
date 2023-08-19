@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import type { NormalTypes, TextElement } from '@/types/props-types'
 import { useTheme } from '@/hooks/useTheme'
+import { useScale } from '@/hooks/useScale'
 
 interface TextChildProps {
   tag?: TextElement
@@ -37,7 +38,9 @@ const TextChildComponent = ({
 }: TextChildProps & typeof defaultProps) => {
   const Component = tag as TextElement
   const theme = useTheme()
+  const { SCALES, getScaleProps } = useScale()
   const color = useMemo(() => getTypeColor(type, theme.palette), [type, theme.palette])
+  // const px = getScaleProps(['pl', 'pr'])
 
   return (
     <Component
