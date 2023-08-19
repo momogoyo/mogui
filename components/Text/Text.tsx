@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import TextChild from './Child'
 
-import type { NormalTypes, TextElement } from '../../types/props-types'
+import type { NormalTypes, TextElement } from '@/types/props-types'
 
 interface TextProps {
   h1?: boolean

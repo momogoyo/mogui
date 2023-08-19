@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import type { NormalTypes, TextElement } from '../../types/props-types'
-import { useTheme } from '@/hooks/useTheme/useTheme'
+import type { NormalTypes, TextElement } from '@/types/props-types'
+import { useTheme } from '@/hooks/useTheme'
 
 interface TextChildProps {
   tag?: TextElement
@@ -38,7 +38,6 @@ const TextChildComponent = ({
   const Component = tag as TextElement
   const theme = useTheme()
   const color = useMemo(() => getTypeColor(type, theme.palette), [type, theme.palette])
-  console.log(color)
 
   return (
     <Component

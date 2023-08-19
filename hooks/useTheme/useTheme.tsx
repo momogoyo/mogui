@@ -1,6 +1,7 @@
 import React from 'react'
-import Themes from '../../components/Themes'
-import { MoguiThemes } from '../../components/Themes/presets'
+import Themes from '@/components/Themes'
+
+import type { MoguiThemes } from '@/components/Themes/presets'
 
 const defaultTheme = Themes.getPresetStaticTheme()
 
