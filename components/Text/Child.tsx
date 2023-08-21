@@ -40,11 +40,23 @@ const TextChildComponent = ({
   const theme = useTheme()
   const { SCALES, getScaleProps } = useScale()
   const color = useMemo(() => getTypeColor(type, theme.palette), [type, theme.palette])
-  // const px = getScaleProps(['pl', 'pr'])
+  const px = getScaleProps(['padding', 'paddingLeft', 'paddingRight', 'pl', 'pr', 'px'])
+  const py = getScaleProps(['padding', 'paddingTop', 'paddingBottom', 'pt', 'pb', 'py'])
+  const classNames = useMemo(() => {
+    const keys = [
+      { value: px, className: 'px' },
+      { value: py, className: 'py' }
+    ]
+    const scaleClassNames = keys.reduce((prev, next) => {
+      if (typeof next.value === 'undefined') return prev
+      return `${prev} ${next.className}`
+    }, '')
+    return `${scaleClassNames} ${className}`.trim()
+  }, [px, py, className])
 
   return (
     <Component
-      className={className}
+      className={classNames}
       {...props}
     >
       {children}
@@ -52,6 +64,14 @@ const TextChildComponent = ({
       <style jsx>{`
         ${tag} {
           color: ${color};
+        }
+        .px {
+          padding-left: ${SCALES.pl(0, 'revert')};
+          padding-right: ${SCALES.pr(0, 'revert')};
+        }
+        .py {
+          padding-top: ${SCALES.pt(0, 'revert')};
+          padding-bottom: ${SCALES.pb(0, 'revert')};
         }
       `}</style>
     </Component>

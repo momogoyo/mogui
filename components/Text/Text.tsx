@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import TextChild from './Child'
+import { withScale } from '@/hooks/useScale'
 
 import type { NormalTypes, TextElement } from '@/types/props-types'
 
@@ -92,4 +93,8 @@ const TextComponent = ({
   )
 }
 
-export default TextComponent
+TextComponent.defaultProps = defaultProps
+TextComponent.displayName = 'MoguiText'
+const Text = withScale(TextComponent)
+
+export default Text
