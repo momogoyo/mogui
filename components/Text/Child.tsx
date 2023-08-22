@@ -39,20 +39,26 @@ const TextChildComponent = ({
   const Component = tag as TextElement
   const theme = useTheme()
   const { SCALES, getScaleProps } = useScale()
-  const color = useMemo(() => getTypeColor(type, theme.palette), [type, theme.palette])
+  const font = getScaleProps('font')
   const px = getScaleProps(['padding', 'paddingLeft', 'paddingRight', 'pl', 'pr', 'px'])
   const py = getScaleProps(['padding', 'paddingTop', 'paddingBottom', 'pt', 'pb', 'py'])
+  const mx = getScaleProps(['margin', 'marginLeft', 'marginRight', 'ml', 'mr', 'mx'])
+  const my = getScaleProps(['margin', 'marginTop', 'marginBottom', 'mt', 'mb', 'my'])
+  const color = useMemo(() => getTypeColor(type, theme.palette), [type, theme.palette])
   const classNames = useMemo(() => {
     const keys = [
       { value: px, className: 'px' },
-      { value: py, className: 'py' }
+      { value: py, className: 'py' },
+      { value: mx, className: 'mx' },
+      { value: my, className: 'my' },
+      { value: font, className: 'font' },
     ]
     const scaleClassNames = keys.reduce((prev, next) => {
       if (typeof next.value === 'undefined') return prev
       return `${prev} ${next.className}`
     }, '')
     return `${scaleClassNames} ${className}`.trim()
-  }, [px, py, className])
+  }, [px, py, mx, my, font, className])
 
   return (
     <Component
@@ -64,14 +70,27 @@ const TextChildComponent = ({
       <style jsx>{`
         ${tag} {
           color: ${color};
+          width: ${SCALES.width(1, 'auto')};
+          height: ${SCALES.height(1, 'auto')};
+        }
+        .font {
+          font-size: ${SCALES.font(1, 'inherit')};
         }
         .px {
-          padding-left: ${SCALES.pl(0, 'revert')};
-          padding-right: ${SCALES.pr(0, 'revert')};
+          padding-left: ${SCALES.pl(0, 'unset')};
+          padding-right: ${SCALES.pr(0, 'unset')};
         }
         .py {
-          padding-top: ${SCALES.pt(0, 'revert')};
-          padding-bottom: ${SCALES.pb(0, 'revert')};
+          padding-top: ${SCALES.pt(0, 'unset')};
+          padding-bottom: ${SCALES.pb(0, 'unset')};
+        }
+        .mx {
+          margin-left: ${SCALES.ml(0, 'unset')};
+          margin-right: ${SCALES.mr(0, 'unset')};
+        }
+        .my {
+          margin-top: ${SCALES.mt(0, 'unset')};
+          margin-bottom: ${SCALES.mb(0, 'unset')};
         }
       `}</style>
     </Component>

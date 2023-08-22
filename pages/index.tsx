@@ -13,7 +13,7 @@ export default function Home() {
         <div>
           This is My First Material UI,
           {/* @ts-ignore */}
-          <Text h3 type="success" pl="5" mr="20" font="30" width="500" height="230">Mogui!</Text>
+          <Text p type="success" pl="5" mr="2" font="1.2" width="10" height="4">Mogui!</Text>
           Please Enjoy
         </div>
       </div>
