@@ -91,7 +91,7 @@ const TextComponent: React.FC<React.PropsWithChildren<TextProps>> = ({
     return 'p' as keyof JSX.IntrinsicElements
   }, [names, inlineNames])
 
-  const renderableChildElements = inlineNames.filter((name: keyof JSX.IntrinsicElements) => name !== tag,) as TextRenderableElements
+  const renderableChildElements = inlineNames.filter((name: keyof JSX.IntrinsicElements) => name !== tag) as TextRenderableElements
 
   const modifers = useMemo(() => {
     if (!renderableChildElements.length) return children
