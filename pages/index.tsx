@@ -11,10 +11,10 @@ export default function Home() {
       </Head>
       <div>
         <div>
-          This is My First Material UI,
+          이건 모모고요의 첫 MUI야!
           {/* @ts-ignore */}
-          <Text p type="success" pl="5" mr="2" font="1.2" width="10" height="4">Mogui!</Text>
-          Please Enjoy
+          <Text p type="warning" pl="2" mr="2" font="1.2" width="10" height="2">'Mogui'</Text>
+          마니마니 써죠
         </div>
       </div>
     </>
