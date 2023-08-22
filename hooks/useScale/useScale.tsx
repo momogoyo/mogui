@@ -11,7 +11,22 @@ export const ScalePropKeys = [
   'paddingLeft',
   'paddingRight',
   'paddingTop',
-  'paddingBottom'
+  'paddingBottom',
+  'ml',
+  'mr',
+  'mt',
+  'mb',
+  'mx',
+  'my',
+  'margin',
+  'marginLeft',
+  'marginRight',
+  'marginTop',
+  'marginBottom',
+  'width',
+  'w',
+  'height',
+  'h'
 ]
 
 export type ScaleProps = {
@@ -26,6 +41,22 @@ export type ScaleProps = {
   paddingRight?: string | number
   paddingTop?: string | number
   paddingBottom?: string | number
+  ml?: string | number
+  mr?: string | number
+  mt?: string | number
+  mb?: string | number
+  mx?: string | number
+  my?: string | number
+  margin?: string | number
+  marginLeft?: string | number
+  marginRight?: string | number
+  marginTop?: string | number
+  marginBottom?: string | number
+  width?: string | number
+  w?: string | number
+  height?: string | number
+  h?: string | number
+  font?: string | number
   unit?: string
   scale?: number
 }
@@ -37,6 +68,15 @@ export type ScaleInputKeys =
   | 'pb'
   | 'px'
   | 'py'
+  | 'ml'
+  | 'mr'
+  | 'mt'
+  | 'mb'
+  | 'mx'
+  | 'my'
+  | 'width'
+  | 'height'
+  | 'font'
 
 export type DynamicLayoutPipe = (
   scale1x: number,
@@ -73,7 +113,16 @@ const defaultContext: ScaleConfig = {
     pb: defaultDynamicLayoutPipe,
     pt: defaultDynamicLayoutPipe,
     px: defaultDynamicLayoutPipe,
-    py: defaultDynamicLayoutPipe
+    py: defaultDynamicLayoutPipe,
+    ml: defaultDynamicLayoutPipe,
+    mr: defaultDynamicLayoutPipe,
+    mb: defaultDynamicLayoutPipe,
+    mt: defaultDynamicLayoutPipe,
+    mx: defaultDynamicLayoutPipe,
+    my: defaultDynamicLayoutPipe,
+    width: defaultDynamicLayoutPipe,
+    height: defaultDynamicLayoutPipe,
+    font: defaultDynamicLayoutPipe
   },
   unit: '16px'
 }

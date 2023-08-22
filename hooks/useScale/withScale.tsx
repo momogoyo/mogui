@@ -58,6 +58,22 @@ export const withScale = <T, P = {}>(
       paddingTop,
       paddingBottom,
       padding,
+      ml,
+      mr,
+      mt,
+      mb,
+      mx,
+      my,
+      marginLeft,
+      marginRight,
+      marginTop,
+      marginBottom,
+      margin,
+      width,
+      w,
+      height,
+      h,
+      font,
       unit = '16px',
       scale = 1,
       ...innerProps
@@ -94,12 +110,22 @@ export const withScale = <T, P = {}>(
         pb: makeScaleHandler(paddingBottom ?? pl ?? py ?? padding),
         px: makeScaleHandler(px ?? paddingLeft ?? paddingRight ?? pl ?? pr ?? padding),
         py: makeScaleHandler(py ?? paddingTop ?? paddingBottom ?? pt ?? pb ?? padding),
+        ml: makeScaleHandler(marginLeft ?? ml ?? mx ?? margin),
+        mr: makeScaleHandler(marginRight ?? mr ?? mx ?? margin),
+        mt: makeScaleHandler(marginTop ?? mt ?? my ?? margin),
+        mb: makeScaleHandler(marginBottom ?? ml ?? my ?? margin),
+        mx: makeScaleHandler(mx ?? marginLeft ?? marginRight ?? ml ?? mr ?? margin),
+        my: makeScaleHandler(my ?? marginTop ?? marginBottom ?? mt ?? mb ?? margin),
+        width: makeScaleHandler(width ?? w),
+        height: makeScaleHandler(height ?? h),
+        font: makeScaleHandler(font)
       },
       unit: '16px'
     }
 
     return (
       <ScaleContext.Provider value={value}>
+        {/* 하위 컴포넌트인 Render의 DOM에 접근할 수 있는 forwardRef */}
         <Render {...(innerProps as P)} ref={ref}>
           {children}
         </Render>
