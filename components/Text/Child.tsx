@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
-import type { NormalTypes, TextElement } from '@/types/props-types'
+import type { NormalTypes } from '@/types/props-types'
 import { useTheme } from '@/hooks/useTheme'
 import { useScale } from '@/hooks/useScale'
 
-interface TextChildProps {
-  tag?: TextElement
+interface Props {
+  tag?: keyof JSX.IntrinsicElements
   type?: NormalTypes
   className?: string
   children?: React.ReactNode
@@ -29,14 +29,17 @@ const getTypeColor = (type: NormalTypes, palette: any) => {
   return colors[type] || colors.default
 }
 
-const TextChildComponent = ({
+type NativeAttrs = Omit<React.DetailsHTMLAttributes<any>, keyof Props>
+export type TextChildProps = Props & NativeAttrs
+
+const TextChild = ({
   tag,
   type,
   className,
   children,
   ...props
-}: TextChildProps & typeof defaultProps) => {
-  const Component = tag as TextElement
+}: React.PropsWithChildren<TextChildProps> & typeof defaultProps) => {
+  const Component = tag as keyof JSX.IntrinsicElements
   const theme = useTheme()
   const { SCALES, getScaleProps } = useScale()
   const font = getScaleProps('font')
@@ -97,4 +100,7 @@ const TextChildComponent = ({
   )
 }
 
-export default TextChildComponent
+TextChild.defaultProps = defaultProps
+TextChild.displayName = 'MoguiText'
+
+export default TextChild

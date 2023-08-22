@@ -11,10 +11,12 @@ export default function Home() {
       </Head>
       <div>
         <div>
-          이건 모모고요의 첫 MUI야!
-          {/* @ts-ignore */}
-          <Text p type="warning" pl="2" mr="2" font="1.2" width="10" height="2">'Mogui'</Text>
-          마니마니 써죠
+          <Text h2>
+            이건 모모고요의 
+            첫 <Text span type="success">MUI</Text>야!
+          </Text>
+          <Text b type="error" font="1.4">"Mogui"</Text>
+          <Text p type="warning" font="1.1">마니마니 써죠</Text>
         </div>
       </div>
     </>
