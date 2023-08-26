@@ -7,7 +7,6 @@ interface Props {
   tag?: keyof JSX.IntrinsicElements
   type?: NormalTypes
   className?: string
-  children?: React.ReactNode
 }
 
 const defaultProps = {
