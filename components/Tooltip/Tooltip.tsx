@@ -77,7 +77,6 @@ const Tooltip = ({
 }: React.PropsWithChildren<TooltipProps> & typeof defaultProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState<boolean>(initialVisible)
-
   const contentProps = {
     type,
     visible,
@@ -88,11 +87,19 @@ const Tooltip = ({
     className: portalClassName
   }
 
+  const changeVisible = (nextState: boolean) => {
+    setVisible(nextState)
+    console.log(nextState)
+  }
+
+  const onMouseHandler = (next: boolean) => trigger === 'hover' && changeVisible(next)
+
   return (
     <div
       ref={ref}
       {...props}
       className='tooltip'
+      onMouseEnter={() => onMouseHandler(true)}
     >
       {children}
       <TooltipContent {...contentProps}>{text}</TooltipContent>

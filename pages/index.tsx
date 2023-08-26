@@ -1,6 +1,6 @@
 import Head from 'next/head'
 // import { Page, Display, Text } from '@mogui/core'
-import { Text } from '@/components'
+import { Text, Tooltip } from '@/components'
 
 export default function Home() {
   return (
@@ -17,6 +17,7 @@ export default function Home() {
           </Text>
           <Text b type="error" font="1.4">"Mogui"</Text>
           <Text p type="warning" font="1.1">마니마니 써죠</Text>
+          <Tooltip trigger={'hover'}>Tooltip</Tooltip>
         </div>
       </div>
     </>
