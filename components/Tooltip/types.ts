@@ -1,4 +1,4 @@
-  import { tuple } from '@/types/props-types'
+import { tuple } from '@/types/props-types'
 
 const placement = tuple(
   'top',

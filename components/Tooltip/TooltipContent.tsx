@@ -1,6 +1,9 @@
-import { useRef } from 'react'
-import { TooptipContentProps } from './types'
+import { useMemo, useRef } from 'react'
 import { useScale } from '@/hooks/useScale'
+import { getColors } from '@/components/Colors'
+
+import type { TooptipContentProps } from './types'
+import { useTheme } from '@/hooks/useTheme'
 
 const TooltipContent = ({
   children,
@@ -12,9 +15,11 @@ const TooltipContent = ({
   className,
   hideArrow,
 }: React.PropsWithChildren<TooptipContentProps>) => {
+  const theme = useTheme()
   const { SCALES } = useScale()
   const selfRef = useRef<HTMLDivElement>(null)
   const statusClassName = visible ? 'enter' : 'leave'
+  const colors = useMemo(() => getColors(type, theme.palette), [type, theme.palette])
   const classes = `tooltip-content ${className} ${statusClassName}`
 
   const preventHandler = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -36,11 +41,12 @@ const TooltipContent = ({
         .tooltip-content {
           display: none;
           position: absolute;
-          background-color: red;
+          background-color: ${colors.bgColor};
+          color: ${colors.color};
+          padding: 0;
+          z-index: 10s00;
           width: ${SCALES.width(1, 'auto')};
           height: ${SCALES.height(1, 'auto')};
-          padding: 0;
-          z-index: 1000;
         }
         .tooltip-content.enter {
           display: block;

@@ -3,6 +3,8 @@ export interface MoguiThemePalette {
   success: string
   warning: string
   error: string
+  background: string
+  foreground: string
 }
 
 export interface MoguiThemes {
