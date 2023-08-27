@@ -37,24 +37,23 @@ const TooltipContent = ({
         {children}
       </div>
 
-      <style>{`
+      <style jsx>{`
         .tooltip-content {
-          display: none;
           position: absolute;
-          background-color: ${colors.bgColor};
-          color: ${colors.color};
+          box-sizing: border-box;
           padding: 0;
-          z-index: 10s00;
+          z-index: 1000;
+          color: ${colors.color};
+          background-color: ${colors.bgColor};
           width: ${SCALES.width(1, 'auto')};
           height: ${SCALES.height(1, 'auto')};
-        }
-        .tooltip-content.enter {
-          display: block;
         }
 
         .inner {
           position: relative;
           box-sizing: border-box;
+          font-size: ${SCALES.font(1)};
+          padding: ${SCALES.pt(0.65)} ${SCALES.pr(0.9)} ${SCALES.pb(0.65)} ${SCALES.pl(0.9)};
           height: 100%;
         }
       `}</style>
