@@ -17,7 +17,7 @@ export default function Home() {
           </Text>
           <Text b type="error" font="1.4">"Mogui"</Text>
           <Text p type="warning" font="1.1">마니마니 써죠</Text>
-          <Tooltip trigger={'hover'}>Tooltip</Tooltip>
+          <Tooltip trigger={'hover'} text={'123123123'}>Tooltip</Tooltip>
         </div>
       </div>
     </>

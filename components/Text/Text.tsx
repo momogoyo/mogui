@@ -106,7 +106,7 @@ const TextComponent: React.FC<React.PropsWithChildren<TextProps>> = ({
 }
 
 TextComponent.defaultProps = defaultProps
-TextComponent.displayName = 'GeistText'
+TextComponent.displayName = 'MoguiText'
 const Text = withScale(TextComponent)
 
 export default Text

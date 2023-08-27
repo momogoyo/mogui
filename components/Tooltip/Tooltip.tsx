@@ -1,65 +1,11 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useClasses } from '@/hooks/useClasses'
+import { withScale } from '@/hooks/useScale'
 import TooltipContent from './TooltipContent'
 
-export type TooltipTypes = 
-  | 'default'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'dark'
-  | 'lite'
+import { TooltipProps, defaultProps } from './types'
 
-export type Placement =
-  | 'topStart'
-  | 'topEnd'
-  | 'left'
-  | 'leftStart'
-  | 'leftEnd'
-  | 'bottom'
-  | 'bottomStart'
-  | 'bottomEnd'
-  | 'right'
-  | 'rightStart'
-  | 'rightEnd'
-
-interface Props {
-  text?: string,
-  visible?: boolean,
-  initialVisible?: boolean,
-  hideArrow?: boolean,
-  type?: TooltipTypes,
-  placement?: Placement,
-  trigger?: 'click' | 'hover',
-  enterDelay?: number,
-  leaveDelay?: number,
-  offset?: number,
-  className?: string
-  portalClassName?: string
-  onVisibilityChange?: (visible: boolean) => void
-}
-
-const defaultProps = {
-  text: '',
-  visible: false,
-  initialVisible: false,
-  hideArrow: false,
-  type: 'default',
-  placement: 'bottom',
-  trigger: 'click',
-  enterDelay: 100,
-  leaveDelay: 150,
-  offset: 12,
-  className: '',
-  portalClassName: '',
-  onVisibilityChange: (() => {}) as (visible: boolean) => void
-}
-
-type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>
-export type TooltipProps = Props & NativeAttrs
-
-const Tooltip = ({
+const TooltipComponent = ({
   text,
   visible: customVisible,
   initialVisible,
@@ -71,10 +17,11 @@ const Tooltip = ({
   leaveDelay,
   offset,
   portalClassName,
-  onVisibilityChange,
+  onVisibleChange,
   children,
   ...props
 }: React.PropsWithChildren<TooltipProps> & typeof defaultProps) => {
+  const timer = useRef<NodeJS.Timeout | null>(null)
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState<boolean>(initialVisible)
   const contentProps = {
@@ -88,18 +35,46 @@ const Tooltip = ({
   }
 
   const changeVisible = (nextState: boolean) => {
-    setVisible(nextState)
-    console.log(nextState)
+    const clear = () => {
+      if (timer.current) {
+        clearTimeout(timer.current)
+        timer.current = null
+      }
+    }
+    const handler = (nextState: boolean) => {
+      setVisible(nextState)
+      clear()
+    }
+    clear()
+    if (nextState) {
+      timer.current =  setTimeout(() => handler(true), enterDelay)
+      return
+    }
+    
+    const leaveDelayWithoutClick = trigger === 'click' ? 0 : leaveDelay
+    timer.current = setTimeout(() => handler(false), leaveDelayWithoutClick)
   }
 
   const onMouseHandler = (next: boolean) => trigger === 'hover' && changeVisible(next)
+  const onClickHandler = () => trigger === 'click' && changeVisible(!visible)
+
+  useEffect(() => {
+    if (customVisible === undefined)
+    changeVisible(visible)
+  }, [customVisible])
+
+  useEffect(() => {
+    console.log(trigger, visible)
+  }, [visible])
 
   return (
     <div
       ref={ref}
       {...props}
       className='tooltip'
+      onClick={onClickHandler}
       onMouseEnter={() => onMouseHandler(true)}
+      onMouseLeave={() => onMouseHandler(false)}
     >
       {children}
       <TooltipContent {...contentProps}>{text}</TooltipContent>
@@ -113,4 +88,7 @@ const Tooltip = ({
   )
 }
 
+TooltipComponent.defaultProps = defaultProps
+TooltipComponent.displayName = 'MoguiTooltip'
+const Tooltip = withScale(TooltipComponent)
 export default Tooltip

@@ -1,14 +1,6 @@
-import { TooltipTypes, Placement } from './Tooltip'
-
-interface Props {
-  parent?: React.MutableRefObject<HTMLElement | null> | undefined
-  placement: Placement
-  type: TooltipTypes
-  visible: boolean
-  hideArrow: boolean
-  offset: number
-  className?: string
-}
+import { useRef } from 'react'
+import { TooptipContentProps } from './types'
+import { useScale } from '@/hooks/useScale'
 
 const TooltipContent = ({
   children,
@@ -19,9 +11,48 @@ const TooltipContent = ({
   type,
   className,
   hideArrow,
-}: React.PropsWithChildren<Props>) => {
+}: React.PropsWithChildren<TooptipContentProps>) => {
+  const { SCALES } = useScale()
+  const selfRef = useRef<HTMLDivElement>(null)
+  const statusClassName = visible ? 'enter' : 'leave'
+  const classes = `tooltip-content ${className} ${statusClassName}`
+
+  const preventHandler = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    event.nativeEvent.stopImmediatePropagation()
+  }
+
   return (
-    <div></div>
+    <div
+      ref={selfRef}
+      className={classes}
+      onClick={preventHandler}
+    >
+      <div className="inner">
+        {children}
+      </div>
+
+      <style>{`
+        .tooltip-content {
+          display: none;
+          position: absolute;
+          background-color: red;
+          width: ${SCALES.width(1, 'auto')};
+          height: ${SCALES.height(1, 'auto')};
+          padding: 0;
+          z-index: 1000;
+        }
+        .tooltip-content.enter {
+          display: block;
+        }
+
+        .inner {
+          position: relative;
+          box-sizing: border-box;
+          height: 100%;
+        }
+      `}</style>
+    </div>
   )
 }
 
