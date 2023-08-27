@@ -1,5 +1,7 @@
 import { useMemo, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { useScale } from '@/hooks/useScale'
+import { usePortal } from '@/hooks/usePortal'
 import { getColors } from '@/components/Colors'
 
 import type { TooptipContentProps } from './types'
@@ -17,6 +19,7 @@ const TooltipContent = ({
 }: React.PropsWithChildren<TooptipContentProps>) => {
   const theme = useTheme()
   const { SCALES } = useScale()
+  const el = usePortal('tooltip')
   const selfRef = useRef<HTMLDivElement>(null)
   const statusClassName = visible ? 'enter' : 'leave'
   const colors = useMemo(() => getColors(type, theme.palette), [type, theme.palette])
@@ -27,7 +30,8 @@ const TooltipContent = ({
     event.nativeEvent.stopImmediatePropagation()
   }
 
-  return (
+  if (!el) return
+  return createPortal(
     <div
       ref={selfRef}
       className={classes}
@@ -58,7 +62,7 @@ const TooltipContent = ({
         }
       `}</style>
     </div>
-  )
+  , el)
 }
 
 export default TooltipContent
