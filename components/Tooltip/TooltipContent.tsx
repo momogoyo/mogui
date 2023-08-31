@@ -10,13 +10,14 @@ import type { TooptipContentProps } from './types'
 
 const TooltipContent = ({
   children,
-  parent,
+  type,
   visible,
   offset,
   placement,
-  type,
-  className,
   hideArrow,
+  iconOffset,
+  parent,
+  className
 }: React.PropsWithChildren<TooptipContentProps>) => {
   const theme = useTheme()
   const { SCALES } = useScale()
@@ -48,8 +49,10 @@ const TooltipContent = ({
 
       <style jsx>{`
         .tooltip-content {
+          --tooltip-icon-offset-x: ${iconOffset.x};
+          --tooltip-icon-offset-y: ${iconOffset.y};
           --tooltip-content-bg: ${colors.bgColor};
-          
+
           position: absolute;
           box-sizing: border-box;
           padding: 0;

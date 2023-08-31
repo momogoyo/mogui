@@ -29,7 +29,10 @@ export type SnippetTypes = typeof snippetTypes[number]
 export type Placement = typeof placement[number]
 export type TriggerTypes = typeof triggerTypes[number]
 export type TooltipOnVisibleChange = (visible: boolean) => void
-
+export type TooltipIconOffset = {
+  x: string,
+  y: string 
+}
 export interface TooptipProps {
   text?: string,
   visible?: boolean,
@@ -47,12 +50,13 @@ export interface TooptipProps {
 }
 
 export interface TooptipContentProps {
-  parent?: React.MutableRefObject<HTMLElement | null> | undefined
-  placement: Placement
   type: SnippetTypes
   visible: boolean
-  hideArrow: boolean
   offset: number
+  placement: Placement
+  hideArrow: boolean
+  iconOffset: TooltipIconOffset,
+  parent?: React.MutableRefObject<HTMLElement | null> | undefined
   className?: string
 }
 

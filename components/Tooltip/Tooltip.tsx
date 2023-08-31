@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import { useClasses } from '@/hooks/useClasses'
 import { withScale } from '@/hooks/useScale'
 import TooltipContent from './TooltipContent'
 
-import { TooltipProps, defaultProps } from './types'
+import { TooltipProps, defaultProps, TooltipIconOffset } from './types'
 
 const TooltipComponent = ({
   text,
@@ -24,12 +24,51 @@ const TooltipComponent = ({
   const timer = useRef<NodeJS.Timeout | null>(null)
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState<boolean>(initialVisible)
+  const iconOffset = useMemo<TooltipIconOffset>(() => {
+    if (!ref?.current) {
+      return {
+        x: '0.75em',
+        y: '0.75em'
+      }
+    }
+
+    const DefaultRect = {
+      top: -1000,
+      left: -1000,
+      right: -1000,
+      bottom: -1000,
+      width: 0,
+      height: 0
+    }
+
+    const getRect = (ref: React.MutableRefObject<HTMLElement | null>) => {
+      if (!ref || !ref.current) return DefaultRect
+
+      const rect = ref.current.getBoundingClientRect()
+      return {
+        ...rect,
+        width: rect.width || rect.right - rect.left,
+        height: rect.height || rect.bottom - rect.top,
+        top: rect.top + document.documentElement.scrollTop,
+        left: rect.left + document.documentElement.scrollLeft,
+        right: rect.right + document.documentElement.scrollLeft,
+        bottom: rect.bottom + document.documentElement.scrollTop
+      }
+    }
+
+    const rect = getRect(ref)
+    return {
+      x: `${rect.width ? rect.width / 2 : 0}`,
+      y: `${rect.height ? rect.height / 2 : 0}`
+    }
+  }, [ref?.current])
   const contentProps = {
     type,
     visible,
     offset,
-    hideArrow,
     placement,
+    hideArrow,
+    iconOffset,
     parent: ref,
     className: portalClassName
   }
