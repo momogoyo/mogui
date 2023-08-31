@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useMemo } from 'react'
 import { useClasses } from '@/hooks/useClasses'
 import { withScale } from '@/hooks/useScale'
 import TooltipContent from './TooltipContent'
+import { getRect } from './helper/rect'
 
 import { TooltipProps, defaultProps, TooltipIconOffset } from './types'
 
@@ -25,37 +26,8 @@ const TooltipComponent = ({
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState<boolean>(initialVisible)
   const iconOffset = useMemo<TooltipIconOffset>(() => {
-    if (!ref?.current) {
-      return {
-        x: '0.75em',
-        y: '0.75em'
-      }
-    }
-
-    const DefaultRect = {
-      top: -1000,
-      left: -1000,
-      right: -1000,
-      bottom: -1000,
-      width: 0,
-      height: 0
-    }
-
-    const getRect = (ref: React.MutableRefObject<HTMLElement | null>) => {
-      if (!ref || !ref.current) return DefaultRect
-
-      const rect = ref.current.getBoundingClientRect()
-      return {
-        ...rect,
-        width: rect.width || rect.right - rect.left,
-        height: rect.height || rect.bottom - rect.top,
-        top: rect.top + document.documentElement.scrollTop,
-        left: rect.left + document.documentElement.scrollLeft,
-        right: rect.right + document.documentElement.scrollLeft,
-        bottom: rect.bottom + document.documentElement.scrollTop
-      }
-    }
-
+    if (!ref?.current) return { x: '0.75em', y: '0.75em'}
+    
     const rect = getRect(ref)
     return {
       x: `${rect.width ? rect.width / 2 : 0}`,
@@ -101,10 +73,6 @@ const TooltipComponent = ({
     if (customVisible === undefined)
     changeVisible(visible)
   }, [customVisible])
-
-  useEffect(() => {
-    console.log(trigger, visible)
-  }, [visible])
 
   return (
     <div
