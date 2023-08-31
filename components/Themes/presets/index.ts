@@ -5,6 +5,7 @@ export interface MoguiThemePalette {
   error: string
   background: string
   foreground: string
+  accents_2: string
 }
 
 export interface MoguiThemes {

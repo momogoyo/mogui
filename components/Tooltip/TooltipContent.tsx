@@ -2,10 +2,11 @@ import { useMemo, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { useScale } from '@/hooks/useScale'
 import { usePortal } from '@/hooks/usePortal'
+import { useTheme } from '@/hooks/useTheme'
 import { getColors } from '@/components/Colors'
+import TooltipIcon from './TooltipIcon'
 
 import type { TooptipContentProps } from './types'
-import { useTheme } from '@/hooks/useTheme'
 
 const TooltipContent = ({
   children,
@@ -21,9 +22,12 @@ const TooltipContent = ({
   const { SCALES } = useScale()
   const el = usePortal('tooltip')
   const selfRef = useRef<HTMLDivElement>(null)
-  const statusClassName = visible ? 'enter' : 'leave'
   const colors = useMemo(() => getColors(type, theme.palette), [type, theme.palette])
+  const hasShadow = type === 'default'
+  const statusClassName = visible ? 'enter' : 'leave'
   const classes = `tooltip-content ${className} ${statusClassName}`
+
+  if (!parent) return null
 
   const preventHandler = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault()
@@ -38,17 +42,20 @@ const TooltipContent = ({
       onClick={preventHandler}
     >
       <div className="inner">
+        <TooltipIcon placement={placement} shadow={hasShadow} />
         {children}
       </div>
 
       <style jsx>{`
         .tooltip-content {
+          --tooltip-content-bg: ${colors.bgColor};
+          
           position: absolute;
           box-sizing: border-box;
           padding: 0;
           z-index: 1000;
           color: ${colors.color};
-          background-color: ${colors.bgColor};
+          background-color: var(--tooltip-content-bg);
           width: ${SCALES.width(1, 'auto')};
           height: ${SCALES.height(1, 'auto')};
         }
