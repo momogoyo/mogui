@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { useScale } from '@/hooks/useScale'
 import { usePortal } from '@/hooks/usePortal'
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/contexts/theme'
 import { getColors } from '@/components/Colors'
 import TooltipIcon from './TooltipIcon'
 

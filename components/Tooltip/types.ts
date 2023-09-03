@@ -33,7 +33,7 @@ export type TooltipIconOffset = {
   x: string,
   y: string 
 }
-export interface TooptipProps {
+export interface Props {
   text?: string,
   visible?: boolean,
   initialVisible?: boolean,
@@ -76,5 +76,5 @@ export const defaultProps = {
   onVisibleChange: (() => {}) as TooltipOnVisibleChange
 }
 
-export type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof TooptipProps>
-export type TooltipProps = TooptipProps & NativeAttrs
+export type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>
+export type TooltipProps = Props & NativeAttrs

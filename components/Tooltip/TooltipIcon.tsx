@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/contexts/theme'
 import { getIconPosition } from './helper/placement'
 
 import type { Placement } from './types'

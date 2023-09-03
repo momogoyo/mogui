@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import type { NormalTypes } from '@/types/props-types'
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/contexts/theme'
 import { useScale } from '@/hooks/useScale'
 
 interface Props {
