@@ -58,8 +58,7 @@ const getModifierChild = (tags: TextRenderableElements, children: React.ReactNod
   return <TextChild tag={tags[0]}>{getModifierChild(nextTag, children)}</TextChild>
 }
 
-// @ts-ignore
-const TextComponent: React.FC<React.PropsWithChildren<TextProps>> = ({
+const TextComponent = ({
   h1,
   h2,
   h3,
