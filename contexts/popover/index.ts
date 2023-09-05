@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 
 export type PopoverConfig = {
-  disableItemAutoClose: boolean
+  disableItemsAutoClose: boolean
   onItemClick: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 
 const defaultContext = {
-  disableItemAutoClose: false,
+  disableItemsAutoClose: false,
   onItemClick: () => {}
 }
 

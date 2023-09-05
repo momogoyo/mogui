@@ -1,1 +1,1 @@
-export { useClasses } from './useClasses'
+export { default } from './useClasses'

@@ -5,7 +5,8 @@ export const palette = {
   error: '#E00',
   background: '#FFF',
   foreground: '#000',
-  accents_2: 'red'
+  accents_2: 'red',
+  border: 'yellow'
 }
 
 export const themes = {

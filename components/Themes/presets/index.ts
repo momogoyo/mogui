@@ -6,6 +6,7 @@ export interface MoguiThemePalette {
   background: string
   foreground: string
   accents_2: string
+  border: string
 }
 
 export interface MoguiThemes {

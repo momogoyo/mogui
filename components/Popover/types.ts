@@ -22,7 +22,7 @@ export const defaultProps = {
   offset: 12,
   portalClassName: '',
   onVisibleChange: (() => {}) as TooltipOnVisibleChange,
-  disableItemAutoClose: false
+  disableItemsAutoClose: false
 }
 
 type ExcludeTooltipProp = {

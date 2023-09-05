@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { PopoverConfig, PopoverContext } from '@/contexts/popover'
-import { withScale } from '@/hooks/useScale'
+import { useScale, withScale } from '@/hooks/useScale'
 import Tooltip from '@/components/Tooltip'
 import { PopoverProps, defaultProps } from './types'
 
@@ -16,26 +16,29 @@ const PopoverComponent = ({
   offset,
   portalClassName,
   onVisibleChange,
-  disableItemAutoClose,
+  disableItemsAutoClose,
   children,
   ...props
 }: React.PropsWithChildren<PopoverProps> & typeof defaultProps) => {
+  const { SCALES } = useScale()
   const [visible, setVisible] = useState<boolean>(false)
   const onChildClick = () => {
     onPopoverVisibleChange(false)
   }
+  
+  const value = useMemo<PopoverConfig>(
+    () => ({
+      disableItemsAutoClose,
+      onItemClick: onChildClick
+    }),
+    [disableItemsAutoClose]
+  )
+
   const onPopoverVisibleChange = (next: boolean) => {
     setVisible(next)
     onVisibleChange(next)
   }
-  const value = useMemo<PopoverConfig>(
-    () => ({
-      disableItemAutoClose,
-      onItemClick: onChildClick
-    }),
-    [disableItemAutoClose]
-  )
-
+  
   useEffect(() => {
     if (customVisible === undefined) return
     onPopoverVisibleChange(customVisible)
@@ -49,10 +52,17 @@ const PopoverComponent = ({
         visible={visible}
         placement={placement}
         trigger={trigger}
-        portalClassName={''}
+        portalClassName={'popover'}
         onVisibleChange={onPopoverVisibleChange}
-        {...props}      >
+        {...props}
+      >
         {children}
+
+        <style jsx>{`
+          :global(.tooltip-content.popover > .inner) {
+            padding: ${SCALES.pt(0.9)} ${SCALES.pr(0)} ${SCALES.pb(0.9)} ${SCALES.pl(0)};
+          }
+        `}</style>
       </Tooltip>
     </PopoverContext.Provider>
   )
