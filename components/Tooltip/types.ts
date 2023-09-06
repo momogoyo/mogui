@@ -58,6 +58,7 @@ export interface TooptipContentProps {
   iconOffset: TooltipIconOffset,
   parent?: React.MutableRefObject<HTMLElement | null> | undefined
   className?: string
+  portalClassName?: string
 }
 
 export const defaultProps = {
@@ -75,6 +76,7 @@ export const defaultProps = {
   portalClassName: '',
   onVisibleChange: (() => {}) as TooltipOnVisibleChange
 }
+
 
 export type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>
 export type TooltipProps = Props & NativeAttrs

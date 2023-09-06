@@ -17,11 +17,11 @@ export default function Home() {
           </Text>
           <Text b type="error" font="1.4">"Mogui"</Text>
           <Text p type="warning" font="1.1">마니마니 써죠</Text>
-          <Tooltip font="1.4" padding="12px" type="warning" trigger={'hover'} text={'tooltip'}>Tooltip</Tooltip>
-          <Popover font="1.4" padding="12px" type="error" trigger={'click'} text={'popover'}>Popover</Popover>
+          <Tooltip font="1.4" padding="12px" type="warning" trigger={'click'} text={'tooltip'}>Tooltip</Tooltip>
+          {/* <Popover font="1.4" padding="12px" type="error" trigger={'click'} text={'popover'}>Popover</Popover>
           <Popover font="1.4" padding="12px" type="error" trigger={'click'} text={'popover'}>
             <Popover.Item>asdf</Popover.Item>
-          </Popover>
+          </Popover> */}
         </div>
       </div>
     </>
