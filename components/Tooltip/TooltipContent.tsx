@@ -8,6 +8,7 @@ import TooltipIcon from './TooltipIcon'
 
 import type { TooptipContentProps } from './types'
 import useClasses from '@/hooks/useClasses/useClasses'
+import CssTransition from '@/shared/CssTransition/CssTransition'
 
 const TooltipContent = ({
   children,
@@ -37,41 +38,43 @@ const TooltipContent = ({
 
   if (!el) return
   return createPortal(
-    <div
-      ref={selfRef}
-      className={classes}
-      onClick={preventHandler}
-    >
-      <div className="inner">
-        <TooltipIcon placement={placement} shadow={hasShadow} />
-        {children}
+    <CssTransition visible={visible}>
+      <div
+        ref={selfRef}
+        className={classes}
+        onClick={preventHandler}
+      >
+        <div className="inner">
+          <TooltipIcon placement={placement} shadow={hasShadow} />
+          {children}
+        </div>
+
+        <style jsx>{`
+          .tooltip-content {
+            --tooltip-icon-offset-x: ${iconOffset.x};
+            --tooltip-icon-offset-y: ${iconOffset.y};
+            --tooltip-content-bg: ${colors.bgColor};
+
+            position: absolute;
+            box-sizing: border-box;
+            padding: 0;
+            z-index: 1000;
+            color: ${colors.color};
+            background-color: var(--tooltip-content-bg);
+            width: ${SCALES.width(1, 'auto')};
+            height: ${SCALES.height(1, 'auto')};
+          }
+
+          .inner {
+            position: relative;
+            box-sizing: border-box;
+            font-size: ${SCALES.font(1)};
+            padding: ${SCALES.pt(0.65)} ${SCALES.pr(0.9)} ${SCALES.pb(0.65)} ${SCALES.pl(0.9)};
+            height: 100%;
+          }
+        `}</style>
       </div>
-
-      <style jsx>{`
-        .tooltip-content {
-          --tooltip-icon-offset-x: ${iconOffset.x};
-          --tooltip-icon-offset-y: ${iconOffset.y};
-          --tooltip-content-bg: ${colors.bgColor};
-
-          position: absolute;
-          box-sizing: border-box;
-          padding: 0;
-          z-index: 1000;
-          color: ${colors.color};
-          background-color: var(--tooltip-content-bg);
-          width: ${SCALES.width(1, 'auto')};
-          height: ${SCALES.height(1, 'auto')};
-        }
-
-        .inner {
-          position: relative;
-          box-sizing: border-box;
-          font-size: ${SCALES.font(1)};
-          padding: ${SCALES.pt(0.65)} ${SCALES.pr(0.9)} ${SCALES.pb(0.65)} ${SCALES.pl(0.9)};
-          height: 100%;
-        }
-      `}</style>
-    </div>
+    </CssTransition>
   , el)
 }
 
