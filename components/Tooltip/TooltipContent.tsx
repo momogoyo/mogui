@@ -7,6 +7,7 @@ import { getColors } from '@/components/Colors'
 import TooltipIcon from './TooltipIcon'
 
 import type { TooptipContentProps } from './types'
+import useClasses from '@/hooks/useClasses/useClasses'
 
 const TooltipContent = ({
   children,
@@ -25,8 +26,7 @@ const TooltipContent = ({
   const selfRef = useRef<HTMLDivElement>(null)
   const colors = useMemo(() => getColors(type, theme.palette), [type, theme.palette])
   const hasShadow = type === 'default'
-  const statusClassName = visible ? 'enter' : 'leave'
-  const classes = `tooltip-content ${className} ${statusClassName}`
+  const classes = useClasses('tooltip-content', className)
 
   if (!parent) return null
 

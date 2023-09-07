@@ -1,8 +1,42 @@
-export type ClassNameObject = Record<string, boolean | string | number | null | undefined>
-export type ClassName = string | ClassNameObject | null | undefined | boolean | number
+export type ClassNamesObject = Record<
+  string,
+  boolean | string | number | null | undefined
+>
+export type ClassName = string | ClassNamesObject | null | undefined | boolean | number
 
-export const useClasses = (...classNames: Array<ClassName>) => {
-  return `` 
+const classObjectToString = (className: ClassNamesObject) => {
+  const keys = Object.keys(className)
+  const len = keys.length
+  let str = ''
+  for (let index = 0; index < len; index++) {
+    const key = keys[index]
+    const val = className[keys[index]]
+    if (!val) continue
+
+    str = str ? `${str} ${String(key)}` : String(key)
+  }
+
+  return str
+}
+
+const isObjectClassName = (value: ClassName): value is ClassNamesObject => typeof value === 'object' && !Array.isArray(value)
+
+const useClasses = (...classNames: Array<ClassName>): string => {
+  const len = classNames.length
+  let classes = ''
+  if (len === 0) return classes
+
+  for (let index = 0; index < len; index++) {
+    const val = classNames[index]
+    if (!val) continue
+    if (isObjectClassName(val)) {
+      classes += ` ${classObjectToString(val)}`
+    } else {
+      classes += ` ${String(val).trim()}`
+    }
+  }
+  
+  return classes.trim()
 }
 
 export default useClasses
