@@ -1,20 +1,17 @@
 {
-  "name": "@mogui/core",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
-  "dependencies": {
-    "@types/node": "20.5.1",
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
-    "next": "13.4.19",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.1.6"
-  }
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "tsconfig": "workspace:*",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.6.10",
+  "name": "mogui"
 }
