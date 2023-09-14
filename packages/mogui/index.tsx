@@ -1,9 +1,12 @@
 import Tooltip from './components/Tooltip'
+import Themes from './components/Themes'
 
 export {
-  Tooltip
+  Tooltip,
+  Themes
 }
 
 export default {
-  Tooltip
+  Tooltip,
+  Themes
 }

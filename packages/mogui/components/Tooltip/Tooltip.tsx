@@ -2,19 +2,35 @@
 
 import React from 'react'
 
+import type { ModeTypes } from '../Themes'
+import TooltipContent from './TooltipContent'
+
 interface TooltipProps {
-  text?: string
-  children?: React.ReactNode
+  mode?: ModeTypes
+  text?: string | React.ReactNode
+}
+
+const defaultProps = {
+  mode: 'default' as ModeTypes,
 }
 
 const Tooltip = ({
+  mode,
   text = '',
   children
-}: React.PropsWithChildren<TooltipProps>) => {
+}: React.PropsWithChildren<TooltipProps> & typeof defaultProps) => {
+  const contentProps = {
+    mode
+  }
+
   return (
     <div className="tooltip">
       {children}
-      {text}
+      <TooltipContent 
+        {...contentProps}
+      >
+        {text}
+      </TooltipContent>
     </div>
   )
 }
