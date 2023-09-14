@@ -1,7 +1,7 @@
 import type { MoguiThemesPalette, MoguiThemes, MoguiThemesExpressiveness } from './index'
 
 export const palette: MoguiThemesPalette = {
-  primary: '#18181B',
+  primary: '#52525B',
   rose: '#E11D48',
   blue: '#2563EB',
   green: '#16A34A',
@@ -11,8 +11,8 @@ export const palette: MoguiThemesPalette = {
   stone: '#78716C',
   red: '#DC2626',
   violet: '#7C3AED',
-  background: '#FFFFFF',
-  foreground: '#09090B',
+  background: '#09090B',
+  foreground: '#FAFAFA',
   border: '#E5E7EB'
 }
 
