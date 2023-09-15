@@ -23,6 +23,13 @@ const Tooltip = ({
       >
         {text}
       </TooltipContent>
+      
+      <style jsx>{`
+        .tooltip {
+          width: max-content;
+          display: inline-block;
+        }
+      `}</style>
     </div>
   )
 }

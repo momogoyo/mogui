@@ -18,6 +18,7 @@ const TooltipContent = ({
       <div className="inner">
         {children}
       </div>
+      
       <style jsx>{`
         .tooltip-content {
           --tooltip-content-bg: ${colors.bgColor};
