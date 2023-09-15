@@ -26,7 +26,6 @@ export interface MoguiThemes {
   expressiveness: MoguiThemesExpressiveness
 }
 
-
 const modeTypes = tuple(
   'primary',
   'rose',
