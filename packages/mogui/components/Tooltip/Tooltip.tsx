@@ -1,20 +1,12 @@
 "use client"
 
 import React from 'react'
-
-import type { ColorTypes } from '../Themes'
 import TooltipContent from './TooltipContent'
 
-interface Props {
-  type?: ColorTypes
-  text?: string | React.ReactNode
-}
-
-type NativeAttrs = Omit<React.HTMLAttributes<any>, & keyof Props>
-export type TooltipProps = Props & NativeAttrs
+import type { TooltipProps } from './types'
 
 const Tooltip = ({
-  type = 'primary' as ColorTypes,
+  type = 'primary',
   text = '',
   children,
   ...props
