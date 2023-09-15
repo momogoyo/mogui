@@ -4,16 +4,7 @@ import React from 'react'
 import { getColors } from '../Themes/themes'
 import useTheme from '../../hooks/useTheme'
 
-import type { ColorTypes } from '../Themes'
-
-interface TooltipContentProps {
-  type?: ColorTypes
-}
-
-interface TooltipColor {
-  bgColor: string
-  color: string
-}
+import type { TooltipContentProps, TooltipColor } from './types'
 
 const TooltipContent = ({
   type = 'primary',

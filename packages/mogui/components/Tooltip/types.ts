@@ -8,3 +8,12 @@ interface Props {
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, & keyof Props>
 export type TooltipProps = Props & NativeAttrs
+
+export interface TooltipContentProps {
+  type?: ColorTypes
+}
+
+export interface TooltipColor {
+  color: string
+  bgColor: string
+}
