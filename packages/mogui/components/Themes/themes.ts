@@ -20,10 +20,11 @@ export const getColors = (
     cement: palette.cement,
     stone: palette.stone,
     red: palette.red,
-    violet: palette.violet
+    violet: palette.violet,
+    white: palette.white
   }
 
-  const color = mode === 'primary' ? palette.foreground : palette.background
+  const color = mode === 'white' ? palette.foreground : palette.background
 
   return {
     color,

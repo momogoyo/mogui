@@ -11,8 +11,9 @@ export const palette: MoguiThemesPalette = {
   stone: '#78716C',
   red: '#DC2626',
   violet: '#7C3AED',
-  background: '#09090B',
-  foreground: '#FFFFFF',
+  white: '#FFFFFF',
+  background: '#FFFFFF',
+  foreground: '#09090B',
   border: '#E5E7EB'
 }
 

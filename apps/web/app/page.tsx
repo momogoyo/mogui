@@ -15,7 +15,7 @@ const Page = () => {
     <>
       {mounted && (
         <Card>
-          <Tooltip text={'Mogui Tooltip'} />
+          <Tooltip type={'violet'} text={'Mogui Tooltip'} />
         </Card>
       )}
     </>

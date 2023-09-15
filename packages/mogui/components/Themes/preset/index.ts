@@ -11,6 +11,7 @@ export interface MoguiThemesPalette {
   stone: string
   red: string
   violet: string
+  white: string
   background: string
   foreground: string
   border: string
@@ -37,6 +38,7 @@ const colorTypes = tuple(
   'stone',
   'red',
   'violet',
+  'white'
 )
 
 export type ColorTypes = typeof colorTypes[number]
