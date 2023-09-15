@@ -1,16 +1,16 @@
 import lightMode from './preset/default'
 
-import type { MoguiThemes, MoguiThemesPalette, ModeTypes } from './preset'
+import type { MoguiThemes, MoguiThemesPalette, ColorTypes } from './preset'
 
 const getPresetStaticTheme = (): MoguiThemes => {
   return lightMode
 }
 
-const getColors = (
-  mode: ModeTypes,
+export const getColors = (
+  mode: ColorTypes,
   palette: MoguiThemesPalette
 ) => {
-  const colors: { [key in ModeTypes]: string } = {
+  const colors: { [key in ColorTypes]: string } = {
     primary: palette.primary,
     rose: palette.rose,
     blue: palette.blue,

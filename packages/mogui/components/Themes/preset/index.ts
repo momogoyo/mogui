@@ -26,7 +26,7 @@ export interface MoguiThemes {
   expressiveness: MoguiThemesExpressiveness
 }
 
-const modeTypes = tuple(
+const colorTypes = tuple(
   'primary',
   'rose',
   'blue',
@@ -39,4 +39,4 @@ const modeTypes = tuple(
   'violet',
 )
 
-export type ModeTypes = typeof modeTypes[number]
+export type ColorTypes = typeof colorTypes[number]

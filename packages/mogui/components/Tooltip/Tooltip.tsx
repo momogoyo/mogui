@@ -2,25 +2,25 @@
 
 import React from 'react'
 
-import type { ModeTypes } from '../Themes'
+import type { ColorTypes } from '../Themes'
 import TooltipContent from './TooltipContent'
 
-interface TooltipProps {
-  mode?: ModeTypes
+interface Props {
+  type?: ColorTypes
   text?: string | React.ReactNode
 }
 
-const defaultProps = {
-  mode: 'default' as ModeTypes,
-}
+type NativeAttrs = Omit<React.HTMLAttributes<any>, & keyof Props>
+export type TooltipProps = Props & NativeAttrs
 
 const Tooltip = ({
-  mode,
+  type = 'primary' as ColorTypes,
   text = '',
-  children
-}: React.PropsWithChildren<TooltipProps> & typeof defaultProps) => {
+  children,
+  ...props
+}: React.PropsWithChildren<TooltipProps>) => {
   const contentProps = {
-    mode
+    type
   }
 
   return (
@@ -34,5 +34,7 @@ const Tooltip = ({
     </div>
   )
 }
+
+Tooltip.displayName = 'MoguiTooltip'
 
 export default Tooltip

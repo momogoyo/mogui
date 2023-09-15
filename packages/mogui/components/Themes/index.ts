@@ -2,7 +2,7 @@ export type {
   MoguiThemes,
   MoguiThemesPalette,
   MoguiThemesExpressiveness,
-  ModeTypes
+  ColorTypes
 } from './preset'
 
 export { default } from './themes'
