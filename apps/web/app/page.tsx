@@ -5,7 +5,12 @@ import { Tooltip } from '@momogoyo/mogui'
 import Card from '@/components/Card'
 
 const Page = () => {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState<boolean>(false)
+  const [visible, setVisible] = useState<boolean>(false)
+
+  const changeHandler = (state: boolean) => {
+    setVisible(state)
+  }
 
   useEffect(() => {
     setMounted(true)
@@ -15,7 +20,7 @@ const Page = () => {
     <>
       {mounted && (
         <Card>
-          <Tooltip type={'violet'} text={'Mogui Tooltip'} />
+          <Tooltip type={'violet'} text={'Mogui Tooltip'} initialVisible={true} visible={visible} onVisibleChange={changeHandler}>Tooltip</Tooltip>
         </Card>
       )}
     </>
