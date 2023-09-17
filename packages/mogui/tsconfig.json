@@ -1,21 +1,26 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
+    "baseUrl": ".",
     "outDir": "dist",    
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "declaration": true,
     "declarationDir": "types",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "target": "es6",
+    "lib": ["dom", "es2017"],
+    "strict": false,
+    "incremental": true
   },
   "include": [
-    "src/**/*"
+    "**/*.ts",
+    "**/*.tsx",
+    "components/**/*.tsx"
   ],  
   "exclude": [
     "node_modules",
-    "dist",
-    "**/*.spce.ts"
+    "dist"
   ]
 }

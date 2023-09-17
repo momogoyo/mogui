@@ -27,6 +27,7 @@ const TooltipContent = ({
           {children}
         </div>
         
+        {/* @ts-ignore */}
         <style jsx>{`
           .tooltip-content {
             --tooltip-content-bg: ${colors.bgColor};
