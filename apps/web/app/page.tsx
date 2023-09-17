@@ -20,7 +20,9 @@ const Page = () => {
     <>
       {mounted && (
         <Card>
-          <Tooltip type={'violet'} text={'Mogui Tooltip'} initialVisible={true} visible={visible} onVisibleChange={changeHandler}>Tooltip</Tooltip>
+          <Tooltip type={'violet'} text={'Mogui Tooltip'} initialVisible={true} visible={visible} onVisibleChange={changeHandler}>
+            <span>Tooltip</span>
+          </Tooltip>
         </Card>
       )}
     </>
