@@ -1,9 +1,10 @@
 "use client"
 
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 import TooltipContent from './TooltipContent'
 
-import type { TooltipProps } from './types'
+import type { TooltipProps, TooltipIconOffset } from './types'
+import { getRect } from './Placement'
 
 const Tooltip = ({
   type = 'primary',
@@ -22,13 +23,23 @@ const Tooltip = ({
   const ref = useRef<HTMLDivElement>(null)
   const timer = useRef<number>(null)
   const [visible, setVisible] = useState<boolean>(initialVisible)
+  const placementOffset = useMemo<TooltipIconOffset>(() => {
+    if (!ref?.current) return { x: '0.75em', y: '0.75em' }
+    
+    const rect = getRect(ref)
+    return {
+      x: `${rect.width}px`,
+      y: `${rect.height}px`
+    }
+  }, [ref?.current])
   
   const contentProps = {
     parentElement: ref,
     type,
     visible,
     placement,
-    offset
+    offset,
+    placementOffset
   }
 
   const changeVisible = (state: boolean) => {

@@ -1,6 +1,5 @@
-export { default } from './TooltipPlacement'
-
 export {
   getPosition,
+  getPlacementPosition,
   getRect
 } from './placement'

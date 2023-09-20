@@ -30,3 +30,11 @@ export interface ParentDomRect {
   width: number
   height: number
 }
+
+export interface TooltipPlacementPosition {
+  top: string
+  left: string
+  right: string
+  bottom: string
+  transform: string
+}

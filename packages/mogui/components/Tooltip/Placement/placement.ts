@@ -1,5 +1,5 @@
 import type { TooltipPosition } from '../types'
-import type { Placement, ParentDomRect } from './types'
+import type { Placement, ParentDomRect, TooltipPlacementPosition } from './types'
 
 export const getPosition = (
   placement: Placement,
@@ -72,6 +72,102 @@ export const getPosition = (
   }
 
   return positions[placement] || (positions.top as TooltipPosition)
+}
+
+export const getPlacementPosition = (
+  placement: Placement,
+  offsetX: string,
+  offsetY: string,
+  offsetAbsolute: string = '3px'
+): TooltipPlacementPosition => {
+  const positions: { [key in Placement]: TooltipPlacementPosition } = {
+    top: {
+      top: 'auto',
+      right: 'auto',
+      left: '50%',
+      bottom: `${offsetAbsolute}`,
+      transform: 'translate(-50%, 100%) rotate(-90deg)',
+    },
+    topStart: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    topEnd: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    left: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    leftStart: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    leftEnd: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    bottom: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    bottomStart: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    bottomEnd: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    right: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    rightStart: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    },
+    rightEnd: {
+      top: '',
+      right: '',
+      left: '',
+      bottom: ``,
+      transform: ''
+    }
+  }
+
+  return positions[placement] || (positions.top as TooltipPlacementPosition)
 }
 
 export const getRect = (ref: React.MutableRefObject<HTMLElement | null>): ParentDomRect => {

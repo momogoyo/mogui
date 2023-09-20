@@ -5,8 +5,9 @@ import { createPortal } from 'react-dom'
 import { getColors } from '../Themes/themes'
 import useTheme from '../../hooks/useTheme'
 import usePortal from '../../hooks/usePortal'
+import { getPosition, getRect } from './Placement'
 import Transition from '../Transition'
-import TooltipPlacement, { getPosition, getRect } from './Placement'
+import TooltipPlacement from './TooltipPlacement'
 
 import type { TooltipContentProps, TooltipColor, TooltipPosition } from './types'
 
@@ -16,6 +17,7 @@ const TooltipContent = ({
   visible,
   placement,
   offset,
+  placementOffset,
   children
 }: React.PropsWithChildren<TooltipContentProps>) => {
   const [rect, setRect] = useState<TooltipPosition>(null)
@@ -45,6 +47,8 @@ const TooltipContent = ({
         {/* @ts-ignore */}
         <style jsx>{`
           .tooltip-content {
+            --tooltip-placement-offset-x: ${placementOffset.x};
+            --tooltip-placement-offset-y: ${placementOffset.y};
             --tooltip-content-bg: ${colors.bgColor};
 
             position: absolute;

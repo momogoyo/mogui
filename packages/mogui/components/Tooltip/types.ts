@@ -23,12 +23,18 @@ interface Props {
 type NativeAttrs = Omit<React.HTMLAttributes<any>, & keyof Props>
 export type TooltipProps = Props & NativeAttrs
 
+export type TooltipIconOffset = {
+  x: string
+  y: string
+}
+
 export interface TooltipContentProps {
   parentElement?: React.MutableRefObject<HTMLElement | null> | undefined
   type?: ColorTypes
   visible?: boolean
   placement?: Placement
   offset?: number
+  placementOffset?: TooltipIconOffset
 }
 
 export interface TooltipColor {
