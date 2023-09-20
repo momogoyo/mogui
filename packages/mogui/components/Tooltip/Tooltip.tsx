@@ -14,14 +14,21 @@ const Tooltip = ({
   trigger = 'hover',
   enterDelay = 100,
   leaveDelay = 100,
+  placement = 'top',
+  offset = 12,
   children,
   ...props
 }: React.PropsWithChildren<TooltipProps>) => {
-  const timer = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
+  const timer = useRef<number>(null)
   const [visible, setVisible] = useState<boolean>(initialVisible)
+  
   const contentProps = {
+    parentElement: ref,
     type,
-    visible
+    visible,
+    placement,
+    offset
   }
 
   const changeVisible = (state: boolean) => {
@@ -38,12 +45,12 @@ const Tooltip = ({
     
     clear()
     if (state) {
-      timer.current = setTimeout(() => handler(true), enterDelay)
+      timer.current = window.setTimeout(() => handler(true), enterDelay)
       return
     }
 
     const leaveDelayWithoutClick = trigger === 'click' ? 0 : leaveDelay
-    timer.current = setTimeout(() => handler(false), leaveDelayWithoutClick)
+    timer.current = window.setTimeout(() => handler(false), leaveDelayWithoutClick)
   }
 
   const mouseEventHandler = (state: boolean) => trigger === 'hover' && changeVisible(!state)
@@ -56,7 +63,9 @@ const Tooltip = ({
   }, [customVisible])
 
   return (
-    <div className="tooltip"
+    <div 
+      ref={ref}
+      className="tooltip"
       onMouseEnter={() => mouseEventHandler(true)}
       onMouseLeave={() => mouseEventHandler(false)}
       onClick={clickEventHandler}

@@ -2,6 +2,7 @@ import React from 'react'
 import { tuple } from '@momogoyo/shared'
 
 import type { ColorTypes } from '../Themes'
+import type { Placement } from './Placement/types'
 
 const triggerTypes = tuple('hover', 'click')
 type TriggerTypes = typeof triggerTypes[number]
@@ -15,17 +16,28 @@ interface Props {
   trigger?: TriggerTypes
   enterDelay?: number
   leaveDelay?: number
+  placement?: Placement
+  offset?: number
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, & keyof Props>
 export type TooltipProps = Props & NativeAttrs
 
 export interface TooltipContentProps {
+  parentElement?: React.MutableRefObject<HTMLElement | null> | undefined
   type?: ColorTypes
   visible?: boolean
+  placement?: Placement
+  offset?: number
 }
 
 export interface TooltipColor {
   color: string
   bgColor: string
+}
+
+export interface TooltipPosition {
+  top: string
+  left: string
+  transform: string
 }
