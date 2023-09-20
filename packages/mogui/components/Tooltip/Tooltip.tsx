@@ -35,7 +35,8 @@ const Tooltip = ({
       onVisibleChange(nextState)
       clear()
     }
-
+    
+    clear()
     if (state) {
       timer.current = setTimeout(() => handler(true), enterDelay)
       return

@@ -27,6 +27,7 @@ const Page = () => {
             visible={visible}
             onVisibleChange={changeHandler}
             trigger={'click'}
+            enterDelay={1000}
           >
             <span>Tooltip</span>
           </Tooltip>
