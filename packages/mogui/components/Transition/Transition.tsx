@@ -22,6 +22,11 @@ const Transition = ({
     }
 
     setClasses(`${name}-${statusClassName}`)
+
+    if (!visible && renderable) {
+      setClasses('')
+      setRenderable(false)
+    }
   }, [visible, renderable])
 
   if (!React.isValidElement(children) || !renderable) return null
