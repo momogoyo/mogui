@@ -1,10 +1,8 @@
-"use client"
-
 import React, { useEffect, useState, useRef, useMemo } from 'react'
+import { getRect } from './Placement'
 import TooltipContent from './TooltipContent'
 
 import type { TooltipProps, TooltipIconOffset } from './types'
-import { getRect } from './Placement'
 
 const Tooltip = ({
   type = 'primary',
