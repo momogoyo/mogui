@@ -1,11 +1,19 @@
 # mogui
 
 ## Tooltip
+텍스트에 대한 추가 정보나 설명을 제공을 위해 표시되는 작은 팝업
+
+### 기본 사용법
+```jsx
+<Tooltip text="모구아이 툴팁 어때?">
+  <span>툴팁 텍스트</span>
+</Tooltip>
+```
 
 ### Props
 
 - **text**: 툴팁에 표시될 텍스트
-  - type: `string \| React.ReactNode`
+  - type: `string | React.ReactNode`
   - default: ''
   
 - **visible**: 툴팁의 표시 여부
@@ -17,7 +25,7 @@
   - default: `false`
 
 - **type**: 스타일 type
-  - type: `TooltipTypes`
+  - type: `ColorTypes`
   - default: `default`
 
 - **placement**: 타겟에 대한 툴팁의 위치
@@ -25,7 +33,7 @@
   - default: `top`
 
 - **trigger**: 툴팁을 트리거
-  - type: `'click' \| 'hover'`
+  - type: `'click' | 'hover'`
   - default: `hover`
 
 - **enterDelay(ms)**: 툴팁이 표시 전 지연 시간(ms)
