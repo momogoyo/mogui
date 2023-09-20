@@ -13,6 +13,8 @@ interface Props {
   visible?: boolean
   onVisibleChange?: (visible: boolean) => void
   trigger?: TriggerTypes
+  enterDelay?: number
+  leaveDelay?: number
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, & keyof Props>
