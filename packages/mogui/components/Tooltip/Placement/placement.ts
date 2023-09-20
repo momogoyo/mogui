@@ -1,9 +1,33 @@
 import type { TooltipPosition } from '../types'
-import type { Placement, ParentDomRect, TooltipPlacementPosition } from './types'
+import type { Placement, ParentRect, TooltipPlacementPosition } from './types'
+
+export const getRect = (
+  ref: React.MutableRefObject<HTMLElement | null>
+): ParentRect => {
+  const defaultRect = {
+    top: -1000,
+    left: -1000,
+    right: -1000,
+    bottom: -1000,
+    width: 0,
+    height: 0
+  }
+  if (!ref) return defaultRect
+
+  const rect = ref.current.getBoundingClientRect()
+  return {
+    top: rect.top + document.documentElement.scrollTop,
+    left: rect.left + document.documentElement.scrollLeft,
+    right: rect.right + document.documentElement.scrollLeft,
+    bottom: rect.bottom + document.documentElement.scrollTop,
+    width: rect.width || rect.right - rect.left,
+    height: rect.height || rect.bottom - rect.top
+  }
+}
 
 export const getPosition = (
   placement: Placement,
-  rect: ParentDomRect,
+  rect: ParentRect,
   offset: number,
 ): TooltipPosition => {
   console.log(rect, offset)
@@ -168,26 +192,4 @@ export const getPlacementPosition = (
   }
 
   return positions[placement] || (positions.top as TooltipPlacementPosition)
-}
-
-export const getRect = (ref: React.MutableRefObject<HTMLElement | null>): ParentDomRect => {
-  const defaultRect = {
-    top: -1000,
-    left: -1000,
-    right: -1000,
-    bottom: -1000,
-    width: 0,
-    height: 0
-  }
-  if (!ref) return defaultRect
-
-  const rect = ref.current.getBoundingClientRect()
-  return {
-    top: rect.top + document.documentElement.scrollTop,
-    left: rect.left + document.documentElement.scrollLeft,
-    right: rect.right + document.documentElement.scrollLeft,
-    bottom: rect.bottom + document.documentElement.scrollTop,
-    width: rect.width || rect.right - rect.left,
-    height: rect.height || rect.bottom - rect.top
-  }
 }

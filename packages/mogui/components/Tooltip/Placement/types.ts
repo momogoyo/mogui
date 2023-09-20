@@ -22,7 +22,7 @@ export interface PlacementProps {
   shadow?: string
 }
 
-export interface ParentDomRect {
+export interface ParentRect {
   top: number
   left: number
   right: number
