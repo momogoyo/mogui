@@ -17,7 +17,7 @@ const Page = () => {
   }, [])
 
   return (
-    <>
+    <div className="mogui">
       {mounted && (
         <Card>
           <Tooltip
@@ -27,12 +27,22 @@ const Page = () => {
             visible={visible}
             onVisibleChange={changeHandler}
             trigger={'click'}
+            placement={'top'}
           >
             <span>Tooltip</span>
           </Tooltip>
         </Card>
       )}
-    </>
+
+      <style jsx>{`
+        .mogui {
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      `}</style>
+    </div>
   )
 }
 

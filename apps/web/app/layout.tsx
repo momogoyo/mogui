@@ -6,8 +6,7 @@ const RootLayout = ({
   children
 }: RootLayoutProps) => (
   <html lang="ko">
-    <head>
-    </head>
+    <head></head>
     <body>{children}</body>
   </html>
 )

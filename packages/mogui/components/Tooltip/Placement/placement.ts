@@ -30,23 +30,23 @@ export const getPosition = (
   rect: ParentRect,
   offset: number,
 ): TooltipPosition => {
-  console.log(rect, offset)
+  console.log(rect.left, offset)
   
   const positions: { [key in Placement]: TooltipPosition } = {
     top: {
-      top: `${rect.top}px`,
-      left: `${rect.left}px`,
-      transform: 'translate(-50%)',
+      top: `${rect.top - offset}px`,
+      left: `${rect.left + (rect.width / 2)}px`,
+      transform: 'translate(-50%, -100%)',
     },
     topStart: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top - offset}px`,
+      left: `${rect.left}px`,
+      transform: 'translate(0%, -100%)',
     },
     topEnd: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top - offset}px`,
+      left: `${rect.left + rect.width}px`,
+      transform: 'translate(-100%, -100%)',
     },
     left: {
       top: `px`,
