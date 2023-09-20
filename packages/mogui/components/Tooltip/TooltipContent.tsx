@@ -53,8 +53,8 @@ const TooltipContent = ({
 
             position: absolute;
             top: ${rect.top};
-            left: ${rect.left}
-            transfrom: ${rect.transform};
+            left: ${rect.left};
+            transform: ${rect.transform};
             color: ${colors.color};
             background-color: var(--tooltip-content-bg);
             width: 100px;
