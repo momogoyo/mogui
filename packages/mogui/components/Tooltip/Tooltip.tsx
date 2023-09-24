@@ -26,8 +26,8 @@ const Tooltip = ({
     
     const rect = getRect(ref)
     return {
-      x: `${rect.width}px`,
-      y: `${rect.height}px`
+      x: `${rect.width ? rect.width / 2 : 0}px`,
+      y: `${rect.height ? rect.height / 2 : 0}px`
     }
   }, [ref?.current])
   

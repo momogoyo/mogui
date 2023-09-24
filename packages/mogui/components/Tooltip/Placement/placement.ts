@@ -49,49 +49,49 @@ export const getPosition = (
       transform: 'translate(-100%, -100%)',
     },
     left: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top + (rect.height / 2)}px`,
+      left: `${rect.left - offset}px`,
+      transform: 'translate(-100%, -50%)',
     },
     leftStart: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top}px`,
+      left: `${rect.left - offset}px`,
+      transform: 'translate(-100%, 0%)',
     },
     leftEnd: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top + rect.height}px`,
+      left: `${rect.left - offset}px`,
+      transform: 'translate(-100%, -100%)',
     },
     bottom: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.bottom + offset}px`,
+      left: `${rect.left + (rect.width / 2)}px`,
+      transform: 'translate(-50%, 0)',
     },
     bottomStart: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.bottom + offset}px`,
+      left: `${rect.left}px`,
+      transform: 'translate(0, 0)',
     },
     bottomEnd: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.bottom + offset}px`,
+      left: `${rect.left + rect.width}px`, // rect.right
+      transform: 'translate(-100%, 0)',
     },
     right: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top + (rect.height / 2)}px`,
+      left: `${rect.right + offset}px`,
+      transform: 'translate(0, -50%)',
     },
     rightStart: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top}px`,
+      left: `${rect.right + offset}px`,
+      transform: 'translate(0, 0)',
     },
     rightEnd: {
-      top: `px`,
-      left: `px`,
-      transform: '',
+      top: `${rect.top + rect.height}px`,
+      left: `${rect.right + offset}px`,
+      transform: 'translate(0, -100%)',
     }
   }
 
@@ -113,81 +113,81 @@ export const getPlacementPosition = (
       transform: 'translate(-50%, 100%) rotate(-90deg)',
     },
     topStart: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: 'auto',
+      right: 'auto',
+      left: `${offsetX}`,
+      bottom: `${offsetAbsolute}`,
+      transform: 'translate(0, 100%) rotate(-90deg)',
     },
     topEnd: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: 'auto',
+      right: `${offsetX}`,
+      left: 'auto',
+      bottom: `${offsetAbsolute}`,
+      transform: 'translate(100%, 100%) rotate(-90deg)',
     },
     left: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: '50%',
+      right: '0',
+      left: 'auto',
+      bottom: 'auto',
+      transform: 'translate(100%, -50%) rotate(180deg)'
     },
     leftStart: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: `${offsetY}`,
+      right: '0',
+      left: 'auto',
+      bottom: 'auto',
+      transform: 'translate(100%, -50%) rotate(180deg)',
     },
     leftEnd: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: 'auto',
+      right: '0',
+      left: 'auto',
+      bottom: `${offsetY}`,
+      transform: 'translate(100%, 50%) rotate(180deg)',
     },
     bottom: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: `${offsetAbsolute}`,
+      right: 'auto',
+      left: '50%',
+      bottom: 'auto',
+      transform: 'translate(-50%, -100%) rotate(90deg)'
     },
     bottomStart: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: `${offsetAbsolute}`,
+      right: 'auto',
+      left: `${offsetX}`,
+      bottom: 'auto',
+      transform: 'translate(-50%, -100%) rotate(90deg)'
     },
     bottomEnd: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: `${offsetAbsolute}`,
+      right: `${offsetX}`,
+      left: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -100%) rotate(90deg)'
     },
     right: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: '50%',
+      right: 'auto',
+      left: '0',
+      bottom: 'auto',
+      transform: 'translate(-100%, -50%) rotate(0deg)'
     },
     rightStart: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: `${offsetY}`,
+      right: 'auto',
+      left: '0',
+      bottom: 'auto',
+      transform: 'translate(-100%, -50%) rotate(0deg)',
     },
     rightEnd: {
-      top: '',
-      right: '',
-      left: '',
-      bottom: ``,
-      transform: ''
+      top: 'auto',
+      right: 'auto',
+      left: '0',
+      bottom: `${offsetY}`,
+      transform: 'translate(-100%, 50%) rotate(0deg)'
     }
   }
 

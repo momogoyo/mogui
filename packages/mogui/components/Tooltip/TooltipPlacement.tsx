@@ -9,8 +9,8 @@ const TooltipPlacement = ({
   const { top, left, right, bottom, transform } = useMemo(() => 
     getPlacementPosition(
       placement,
-      'var(--tooltip-icon-offset-x)',
-      'var(--tooltip-icon-offset-y)'
+      'var(--tooltip-placement-offset-x)',
+      'var(--tooltip-placement-offset-y)'
     ),
   [placement])
   

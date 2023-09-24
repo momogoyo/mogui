@@ -27,7 +27,7 @@ const Page = () => {
             visible={visible}
             onVisibleChange={changeHandler}
             trigger={'click'}
-            placement={'top'}
+            placement={'rightStart'}
           >
             <span>Tooltip</span>
           </Tooltip>
