@@ -25,6 +25,29 @@ export interface MoguiThemes {
   mode: string
   palette: MoguiThemesPalette
   expressiveness: MoguiThemesExpressiveness
+  defaultBreakpoints: MoguiThemesBreakpoints
+  layout: MoguiThemesLayout
+}
+
+interface BreakpointsItem {
+  min: string
+  max: string
+}
+
+export interface MoguiThemesBreakpoints {
+  xs: BreakpointsItem,
+  sm: BreakpointsItem,
+  md: BreakpointsItem,
+  lg: BreakpointsItem,
+  xl: BreakpointsItem
+}
+
+export interface MoguiThemesLayout {
+  gap: string
+  breakpointTablet: string
+  breakpointMobile: string
+  radius: string
+  unit: string
 }
 
 const colorTypes = tuple(

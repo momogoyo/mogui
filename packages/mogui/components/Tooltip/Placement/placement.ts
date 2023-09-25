@@ -30,8 +30,6 @@ export const getPosition = (
   rect: ParentRect,
   offset: number,
 ): TooltipPosition => {
-  console.log(rect.left, offset)
-  
   const positions: { [key in Placement]: TooltipPosition } = {
     top: {
       top: `${rect.top - offset}px`,

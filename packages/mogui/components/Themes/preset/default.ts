@@ -1,4 +1,10 @@
-import type { MoguiThemesPalette, MoguiThemes, MoguiThemesExpressiveness } from './index'
+import type {
+  MoguiThemesPalette,
+  MoguiThemes,
+  MoguiThemesExpressiveness,
+  MoguiThemesLayout,
+  MoguiThemesBreakpoints
+} from './index'
 
 export const palette: MoguiThemesPalette = {
   primary: '#18181B',
@@ -21,10 +27,43 @@ export const expressiveness: MoguiThemesExpressiveness = {
   shadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
 }
 
+export const defaultBreakpoints: MoguiThemesBreakpoints = {
+  xs: {
+    min: '0',
+    max: '650px'
+  },
+  sm: {
+    min: '650px',
+    max: '900px'
+  },
+  md: {
+    min: '900px',
+    max: '1280px'
+  },
+  lg: {
+    min: '1280px',
+    max: '1920px'
+  },
+  xl: {
+    min: '1920px',
+    max: '10000px'
+  }
+}
+
+export const layout: MoguiThemesLayout = {
+  gap: '16pt',
+  breakpointTablet: defaultBreakpoints.sm.max,
+  breakpointMobile: defaultBreakpoints.xs.max,
+  radius: '6px',
+  unit: '16px'
+}
+
 const themes: MoguiThemes = {
   mode: 'light',
   palette,
-  expressiveness
+  expressiveness,
+  defaultBreakpoints,
+  layout
 }
 
 export default themes

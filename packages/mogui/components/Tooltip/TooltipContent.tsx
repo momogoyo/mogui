@@ -54,7 +54,9 @@ const TooltipContent = ({
             left: ${rect.left};
             transform: ${rect.transform};
             color: ${colors.color};
+            border-radius: ${theme.layout.radius};
             background-color: var(--tooltip-content-bg);
+
             width: 100px;
             height: 50px;
           }
