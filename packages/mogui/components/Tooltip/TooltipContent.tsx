@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { getColors } from '../Themes/themes'
 import useTheme from '../../hooks/useTheme'
 import usePortal from '../../hooks/usePortal'
+import useScale from '../../hooks/useScale'
 import { getPosition, getRect } from './Placement'
 import Transition from '../Transition'
 import TooltipPlacement from './TooltipPlacement'
@@ -21,6 +22,7 @@ const TooltipContent = ({
   const [rect, setRect] = useState<TooltipPosition>(null)
   const element = usePortal('tooltip')
   const theme = useTheme()
+  const { SCALES } = useScale()
   const colors: TooltipColor = getColors(type, theme.palette)
   if (!parentElement) return null
 
@@ -56,7 +58,6 @@ const TooltipContent = ({
             color: ${colors.color};
             border-radius: ${theme.layout.radius};
             background-color: var(--tooltip-content-bg);
-
             width: 100px;
             height: 50px;
           }
