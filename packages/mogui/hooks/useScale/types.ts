@@ -1,3 +1,23 @@
+export const ScalePropKeys = [
+  'pl',
+  'pr',
+  'pb',
+  'pt',
+  'px',
+  'py',
+  'ml',
+  'mr',
+  'mb',
+  'mt',
+  'mx',
+  'my',
+  'width',
+  'height',
+  'font',
+  'unit',
+  'scale',
+]
+
 export type ScaleInputKeys =
   | 'pl'
   | 'pr'
@@ -43,7 +63,8 @@ export type ScaleProps = {
   width?: string | number,
   height?: string | number,
   font?: string | number,
-  unit?: string | number
+  unit?: string | number,
+  scale?: number
 }
 
 export type DynamicScalePipe = (scale1x: number, defaultValue?: string | number) => string
@@ -55,5 +76,5 @@ export interface ScaleConfig {
   SCALES: DynamicScale
   getScaleProps: GetScalePropsFunction
   getAllScaleProps: GetAllScalePropsFunction
-  unit: string
+  unit: string | number
 }

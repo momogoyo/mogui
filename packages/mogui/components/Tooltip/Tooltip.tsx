@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { getRect } from './Placement'
 import TooltipContent from './TooltipContent'
+import { provideScale } from 'hooks/useScale'
 
 import type { TooltipProps, TooltipIconOffset } from './types'
 
@@ -99,4 +100,4 @@ const Tooltip = ({
 
 Tooltip.displayName = 'MoguiTooltip'
 
-export default Tooltip
+export default provideScale(Tooltip)
