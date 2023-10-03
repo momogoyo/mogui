@@ -19,8 +19,6 @@ const TooltipPlacement = ({
       {/* @ts-ignore */}
       <style jsx>{`
         span {
-          width: 0;
-          height: 0;
           position: absolute;
           top: ${top};
           left: ${left};
@@ -30,6 +28,8 @@ const TooltipPlacement = ({
           border-width: 6px 7px 6px 0;
           border-style: solid;
           border-color: transparent var(--tooltip-content-bg) transparent transparent;
+          width: 0;
+          height: 0;
         }
       `}</style>
     </span>

@@ -51,6 +51,7 @@ const TooltipContent = ({
             --tooltip-placement-offset-y: ${placementOffset.y};
             --tooltip-content-bg: ${colors.bgColor};
 
+            box-sizing: border-box;
             position: absolute;
             top: ${rect.top};
             left: ${rect.left};
@@ -58,10 +59,13 @@ const TooltipContent = ({
             color: ${colors.color};
             border-radius: ${theme.layout.radius};
             background-color: var(--tooltip-content-bg);
-            width: 100px;
-            height: 50px;
+            width: ${SCALES.width(1, 'auto')};
+            height: ${SCALES.height(1, 'auto')};
           }
           .inner {
+            box-sizing: border-box;
+            font-size: ${SCALES.font(1)};
+            padding: ${SCALES.pt(0.65)}${SCALES.pr(0.9)}${SCALES.pb(0.65)}${SCALES.pl(0.9)};
             height: 100%;
           }
         `}</style>
