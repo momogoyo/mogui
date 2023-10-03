@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { getRect } from './Placement'
 import TooltipContent from './TooltipContent'
 import { provideScale } from '../../hooks/useScale'
+import useClickAway from '../../hooks/useClickAway'
 
 import type { TooltipProps, TooltipIconOffset } from './types'
 
@@ -63,9 +64,10 @@ const TooltipComponent = ({
     timer.current = window.setTimeout(() => handler(false), leaveDelayWithoutClick)
   }
 
-  const mouseEventHandler = (state: boolean) => trigger === 'hover' && changeVisible(!state)
+  const mouseEventHandler = (state: boolean) => trigger === 'hover' && changeVisible(state)
   const clickEventHandler = () => trigger === 'click' && changeVisible(!visible)
 
+  useClickAway(ref, () => trigger === 'click' && changeVisible(!visible))
   useEffect(() => {
     if (customVisible === undefined) return
 
