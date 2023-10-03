@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { getRect } from './Placement'
 import TooltipContent from './TooltipContent'
-import { provideScale } from 'hooks/useScale'
+import { provideScale } from '../../hooks/useScale'
 
 import type { TooltipProps, TooltipIconOffset } from './types'
 
-const Tooltip = ({
+const TooltipComponent = ({
   type = 'primary',
   text = '',
   initialVisible = false,
@@ -73,13 +73,13 @@ const Tooltip = ({
   }, [customVisible])
 
   return (
-    <div 
+    <div
       ref={ref}
-      className="tooltip"
+      // className={useClasses('tooltip', className)}
+      onClick={clickEventHandler}
       onMouseEnter={() => mouseEventHandler(true)}
       onMouseLeave={() => mouseEventHandler(false)}
-      onClick={clickEventHandler}
-    >
+      {...props}>
       {children}
       <TooltipContent 
         {...contentProps}
@@ -98,6 +98,7 @@ const Tooltip = ({
   )
 }
 
-Tooltip.displayName = 'MoguiTooltip'
+TooltipComponent.displayName = 'MoguiTooltip'
+const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = provideScale(TooltipComponent)
 
-export default provideScale(Tooltip)
+export default Tooltip
