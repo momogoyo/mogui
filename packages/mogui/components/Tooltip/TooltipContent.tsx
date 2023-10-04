@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { getColors } from '../Themes/themes'
-import useTheme from '../../hooks/useTheme'
-import usePortal from '../../hooks/usePortal'
-import useScale from '../../hooks/useScale'
 import { getPosition, getRect } from './Placement'
-import Transition from '../Transition'
 import TooltipPlacement from './TooltipPlacement'
+import { getColors } from '@/components/Themes/themes'
+import Transition from '@/components/Transition'
+import useTheme from '@/hooks/useTheme'
+import usePortal from '@/hooks/usePortal'
+import useScale from '@/hooks/useScale'
 
 import type { TooltipContentProps, TooltipColor, TooltipPosition } from './types'
 

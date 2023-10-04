@@ -1,7 +1,7 @@
 import React from 'react'
 import { tuple } from '@momogoyo/shared'
 
-import type { ColorTypes } from '../Themes'
+import type { ColorTypes } from '@/components/Themes'
 import type { Placement } from './Placement/types'
 
 const triggerTypes = tuple('hover', 'click')

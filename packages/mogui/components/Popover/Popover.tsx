@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect } from 'react'
 import { PopoverContext, PopoverConfig } from './PopoverContext'
-import Tooltip from '../Tooltip'
+import Tooltip from '@/components/Tooltip'
+import { provideScale } from '@/hooks/useScale'
 import { getReactNode } from '@momogoyo/shared'
 
 import type { PopoverProps } from './types'
-import { provideScale } from 'hooks/useScale'
 
 const PopoverComponent = ({
   content,

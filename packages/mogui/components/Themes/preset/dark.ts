@@ -13,7 +13,8 @@ export const palette: MoguiThemesPalette = {
   violet: '#7C3AED',
   background: '#09090B',
   foreground: '#FAFAFA',
-  border: '#E5E7EB'
+  border: '#E5E7EB',
+  white: '#FFFFFF'
 }
 
 export const expressiveness: MoguiThemesExpressiveness = {

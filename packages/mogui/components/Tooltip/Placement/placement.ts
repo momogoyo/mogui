@@ -1,4 +1,4 @@
-import type { TooltipPosition } from '../types'
+import type { TooltipPosition } from '@/components/Tooltip/types'
 import type { Placement, ParentRect, TooltipPlacementPosition } from './types'
 
 export const getRect = (

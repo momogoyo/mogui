@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { getRect } from './Placement'
 import TooltipContent from './TooltipContent'
-import { provideScale } from '../../hooks/useScale'
-import useClickAway from '../../hooks/useClickAway'
+import { provideScale } from '@/hooks/useScale'
+import useClickAway from '@/hooks/useClickAway'
 
 import type { TooltipProps, TooltipIconOffset } from './types'
 
