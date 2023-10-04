@@ -17,6 +17,9 @@ const TooltipComponent = ({
   leaveDelay = 100,
   placement = 'top',
   offset = 12,
+  className = '',
+  portalClassName = '',
+  hideArrow = false,
   children,
   ...props
 }: React.PropsWithChildren<TooltipProps>) => {
@@ -39,7 +42,9 @@ const TooltipComponent = ({
     visible,
     placement,
     offset,
-    placementOffset
+    placementOffset,
+    className: portalClassName,
+    hideArrow,
   }
 
   const changeVisible = (state: boolean) => {

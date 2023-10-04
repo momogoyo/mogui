@@ -18,6 +18,9 @@ interface Props {
   leaveDelay?: number
   placement?: Placement
   offset?: number
+  className?: string
+  portalClassName?: string
+  hideArrow?: boolean
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, & keyof Props>
@@ -35,6 +38,8 @@ export interface TooltipContentProps {
   placement?: Placement
   offset?: number
   placementOffset?: TooltipIconOffset
+  className?: string
+  hideArrow?: boolean
 }
 
 export interface TooltipColor {

@@ -17,6 +17,8 @@ const TooltipContent = ({
   placement,
   offset,
   placementOffset,
+  className,
+  hideArrow,
   children
 }: React.PropsWithChildren<TooltipContentProps>) => {
   const [rect, setRect] = useState<TooltipPosition>(null)
@@ -40,7 +42,7 @@ const TooltipContent = ({
     <Transition visible={visible}>
       <div className="tooltip-content">
         <div className="inner">
-          <TooltipPlacement placement={placement} />
+          {!hideArrow && <TooltipPlacement placement={placement} />}
           {children}
         </div>
         
