@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Tooltip } from '@momogoyo/mogui'
+import { Tooltip, Popover } from '@momogoyo/mogui'
 import Card from '@/components/Card'
 
 const Page = () => {
@@ -12,6 +12,10 @@ const Page = () => {
     setVisible(state)
   }
 
+  const content = () => (
+    <div>hello</div>
+  )
+
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -19,19 +23,30 @@ const Page = () => {
   return (
     <div className="mogui">
       {mounted && (
-        <Card>
-          <Tooltip
-            type={'violet'}
-            text={'Mogui Tooltip'}
-            initialVisible={true}
-            visible={visible}
-            onVisibleChange={changeHandler}
-            trigger={'click'}
-            placement={'rightStart'}
-          >
-            <span>Tooltip</span>
-          </Tooltip>
-        </Card>
+        <div
+          style={{
+            flex: 1
+          }}
+        >
+          <Card bgColor={'violet'}>
+            <Tooltip
+              type={'violet'}
+              text={'Mogui Tooltip'}
+              initialVisible={true}
+              visible={visible}
+              onVisibleChange={changeHandler}
+              trigger={'click'}
+              placement={'top'}
+            >
+              <span>Tooltip</span>
+            </Tooltip>
+          </Card>
+          <Card bgColor={'skyblue'} color={'#000'}>
+            <Popover content={content}>
+              <span>Popover</span>
+            </Popover>
+          </Card>
+        </div>
       )}
 
       <style jsx>{`
