@@ -1,13 +1,13 @@
 import { useState, useMemo, useEffect } from 'react'
 import { PopoverContext, PopoverConfig } from './PopoverContext'
-import Tooltip from '@/components/Tooltip'
-import { provideScale } from '@/hooks/useScale'
+import Tooltip from '../Tooltip'
+import { provideScale } from '../../hooks/useScale'
 import { getReactNode } from '@momogoyo/shared'
 
 import type { PopoverProps } from './types'
 
 const PopoverComponent = ({
-  content,
+  content = '',
   initialVisible = false,
   onVisibleChange = (() => {}),
   visible: customVisible,

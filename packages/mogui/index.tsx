@@ -1,6 +1,6 @@
-import Tooltip from '@/components/Tooltip'
-import Popover from '@/components/Popover'
-import Themes from '@/components/Themes'
+import Tooltip from './components/Tooltip'
+import Popover from './components/Popover'
+import Themes from './components/Themes'
 
 export {
   Tooltip,

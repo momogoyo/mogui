@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "dist",    
+    "outDir": "dist",
     "jsx": "preserve",
     "declaration": true,
     "declarationDir": "types",
@@ -14,8 +14,8 @@
     "strict": false,
     "incremental": true,
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/hooks/*": ["hooks/*"]
+      "..//*": ["components/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": [

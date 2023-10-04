@@ -1,6 +1,7 @@
-import type { TooltipProps } from 'components/Tooltip/types'
 import { tuple } from '@momogoyo/shared'
-import { Placement } from 'components/Tooltip/Placement/types'
+
+import type { TooltipProps } from '../Tooltip/types'
+import type { Placement } from '../Tooltip/Placement/types'
 
 const triggerTypes = tuple('hover', 'click')
 type TriggerTypes = typeof triggerTypes[number]

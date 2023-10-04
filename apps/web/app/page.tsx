@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Tooltip, Popover } from '@momogoyo/mogui'
-import Card from '@/components/Card'
+import Card from '../components/Card'
 
 const Page = () => {
   const [mounted, setMounted] = useState<boolean>(false)
@@ -13,7 +13,9 @@ const Page = () => {
   }
 
   const content = () => (
-    <div>hello</div>
+    <div style={{ padding: '0 10px' }}>
+      Hello
+    </div>
   )
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const Page = () => {
             </Tooltip>
           </Card>
           <Card bgColor={'skyblue'} color={'#000'}>
-            <Popover content={content}>
+            <Popover content={content} >
               <span>Popover</span>
             </Popover>
           </Card>
