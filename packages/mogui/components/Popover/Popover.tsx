@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react'
 import { PopoverContext, PopoverConfig } from './PopoverContext'
 import Tooltip from '../Tooltip'
 import { provideScale } from '../../hooks/useScale'
+import useClasses from '../../hooks/useClasees'
 import { getReactNode } from '@momogoyo/shared'
 
 import type { PopoverProps } from './types'
@@ -31,32 +32,26 @@ const PopoverComponent = ({
     onVisibleChange(next)
   }
 
-  const value = useMemo<PopoverConfig>(() => ({
-    disableItemsAutoClose,
-    onItemClick: () => onPopoverVisibleChange(false)
-  }), [disableItemsAutoClose])
-
   useEffect(() => {
     if (customVisible === undefined) return 
     onPopoverVisibleChange(customVisible)
   }, [customVisible])
 
   return (
-    <PopoverContext.Provider value={value}>
-      <Tooltip
-        text={textNode}
-        trigger={trigger}
-        placement={placement}
-        visible={visible}
-        onVisibleChange={onPopoverVisibleChange}
-        {...props}
-      >
-        {children}
+    <Tooltip
+      text={textNode}
+      trigger={trigger}
+      placement={placement}
+      visible={visible}
+      onVisibleChange={onPopoverVisibleChange}
+      portalClassName={useClasses('popover', portalClassName)}
+      {...props}
+    >
+      {children}
 
-        {/* @ts-ignore */}
-        <style jsx>{``}</style>
-      </Tooltip>
-    </PopoverContext.Provider>
+      {/* @ts-ignore */}
+      <style jsx>{``}</style>
+    </Tooltip>
   )
 }
 

@@ -25,11 +25,7 @@ const Page = () => {
   return (
     <div className="mogui">
       {mounted && (
-        <div
-          style={{
-            flex: 1
-          }}
-        >
+        <div>
           <Card bgColor={'violet'}>
             <Tooltip
               type={'violet'}
@@ -37,14 +33,25 @@ const Page = () => {
               initialVisible={true}
               visible={visible}
               onVisibleChange={changeHandler}
-              trigger={'click'}
+              trigger={'hover'}
               placement={'top'}
             >
               <span>Tooltip</span>
             </Tooltip>
           </Card>
-          <Card bgColor={'skyblue'} color={'#000'}>
-            <Popover content={content} >
+          <Card bgColor={'skyblue'}>
+            <Tooltip
+              type={'blue'}
+              text={'Mogui Tooltip2'}
+              initialVisible={true}
+              trigger={'click'}
+              placement={'right'}
+            >
+              <span>Tooltip2</span>
+            </Tooltip>
+          </Card>
+          <Card bgColor={'pink'} color={'#FFF'}>
+            <Popover  content={content}>
               <span>Popover</span>
             </Popover>
           </Card>

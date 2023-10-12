@@ -3,6 +3,7 @@ import { getRect } from './Placement'
 import TooltipContent from './TooltipContent'
 import { provideScale } from '../../hooks/useScale'
 import useClickAway from '../../hooks/useClickAway'
+import useClasses from '../../hooks/useClasees'
 
 import type { TooltipProps, TooltipIconOffset } from './types'
 
@@ -72,7 +73,7 @@ const TooltipComponent = ({
   const mouseEventHandler = (state: boolean) => trigger === 'hover' && changeVisible(state)
   const clickEventHandler = () => trigger === 'click' && changeVisible(!visible)
 
-  useClickAway(ref, () => trigger === 'click' && changeVisible(!visible))
+  useClickAway(ref, () => trigger === 'click' && changeVisible(false))
   useEffect(() => {
     if (customVisible === undefined) return
 
@@ -82,7 +83,7 @@ const TooltipComponent = ({
   return (
     <div
       ref={ref}
-      // className={useClasses('tooltip', className)}
+      className={useClasses('tooltip', className)}
       onClick={clickEventHandler}
       onMouseEnter={() => mouseEventHandler(true)}
       onMouseLeave={() => mouseEventHandler(false)}
