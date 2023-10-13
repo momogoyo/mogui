@@ -7,6 +7,7 @@ import Transition from '../Transition'
 import useTheme from '../../hooks/useTheme'
 import usePortal from '../../hooks/usePortal'
 import useScale from '../../hooks/useScale'
+import useClasses from '../../hooks/useClasses'
 
 import type { TooltipContentProps, TooltipColor, TooltipPosition } from './types'
 
@@ -25,6 +26,7 @@ const TooltipContent = ({
   const element = usePortal('tooltip')
   const theme = useTheme()
   const { SCALES } = useScale()
+  const classes = useClasses('tooltip-content', className)
   const colors: TooltipColor = getColors(type, theme.palette)
   if (!parentElement) return null
 
@@ -40,7 +42,7 @@ const TooltipContent = ({
   if (!element) return null
   return createPortal(
     <Transition visible={visible}>
-      <div className="tooltip-content">
+      <div className={classes}>
         <div className="inner">
           {!hideArrow && <TooltipPlacement placement={placement} />}
           {children}

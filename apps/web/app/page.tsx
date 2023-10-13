@@ -51,7 +51,7 @@ const Page = () => {
             </Tooltip>
           </Card>
           <Card bgColor={'pink'} color={'#FFF'}>
-            <Popover  content={content}>
+            <Popover content={content}>
               <span>Popover</span>
             </Popover>
           </Card>

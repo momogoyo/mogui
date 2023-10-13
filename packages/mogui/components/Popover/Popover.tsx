@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from 'react'
 import { PopoverContext, PopoverConfig } from './PopoverContext'
 import Tooltip from '../Tooltip'
-import { provideScale } from '../../hooks/useScale'
-import useClasses from '../../hooks/useClasees'
+import useScale, { provideScale } from '../../hooks/useScale'
+import useClasses from '../../hooks/useClasses'
 import { getReactNode } from '@momogoyo/shared'
 
 import type { PopoverProps } from './types'
@@ -25,6 +25,8 @@ const PopoverComponent = ({
   ...props
 }: React.PropsWithChildren<PopoverProps>) => {
   const [visible, setVisible] = useState<boolean>(initialVisible)
+  const { SCALES } = useScale()
+  const classes = useClasses('popover', portalClassName)
   const textNode = useMemo(() => getReactNode(content), [content])
   
   const onPopoverVisibleChange = (next: boolean) => {
@@ -44,13 +46,17 @@ const PopoverComponent = ({
       placement={placement}
       visible={visible}
       onVisibleChange={onPopoverVisibleChange}
-      portalClassName={useClasses('popover', portalClassName)}
+      portalClassName={classes}
       {...props}
     >
       {children}
 
       {/* @ts-ignore */}
-      <style jsx>{``}</style>
+      <style jsx>{`
+        :global(.tooltip-content.popover > .inner) {
+          padding: ${SCALES.pt(0.9)} ${SCALES.pr(0)} ${SCALES.pb(0.9)} ${SCALES.pl(0)};
+        }
+      `}</style>
     </Tooltip>
   )
 }

@@ -3,7 +3,7 @@ import { getRect } from './Placement'
 import TooltipContent from './TooltipContent'
 import { provideScale } from '../../hooks/useScale'
 import useClickAway from '../../hooks/useClickAway'
-import useClasses from '../../hooks/useClasees'
+import useClasses from '../../hooks/useClasses'
 
 import type { TooltipProps, TooltipIconOffset } from './types'
 
@@ -27,6 +27,7 @@ const TooltipComponent = ({
   const ref = useRef<HTMLDivElement>(null)
   const timer = useRef<number>(null)
   const [visible, setVisible] = useState<boolean>(initialVisible)
+  const classes = useClasses('tooltip', className)
   const placementOffset = useMemo<TooltipIconOffset>(() => {
     if (!ref?.current) return { x: '0.75em', y: '0.75em' }
     
@@ -83,7 +84,7 @@ const TooltipComponent = ({
   return (
     <div
       ref={ref}
-      className={useClasses('tooltip', className)}
+      className={classes}
       onClick={clickEventHandler}
       onMouseEnter={() => mouseEventHandler(true)}
       onMouseLeave={() => mouseEventHandler(false)}
