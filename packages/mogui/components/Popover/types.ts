@@ -20,4 +20,15 @@ type ExcludeTooltipProps = {
   placement: any
 }
 
-export type PopoverProps = Props & Omit<TooltipProps, keyof ExcludeTooltipProps>
+type ExcludeTypeProps = Omit<TooltipProps, keyof ExcludeTooltipProps>
+export type PopoverProps = Props & ExcludeTypeProps
+
+interface ItemProps {
+  line?: boolean
+  title?: boolean
+  disableAutoClose?: boolean
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+}
+
+type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof ItemProps>
+export type PopoverItemProps = ItemProps & NativeAttrs

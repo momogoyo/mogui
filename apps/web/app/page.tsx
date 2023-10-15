@@ -14,7 +14,7 @@ const Page = () => {
 
   const content = () => (
     <div style={{ padding: '0 10px' }}>
-      Hello
+      <p>A hyperp</p>
     </div>
   )
 
@@ -51,7 +51,7 @@ const Page = () => {
             </Tooltip>
           </Card>
           <Card bgColor={'pink'} color={'#FFF'}>
-            <Popover content={content}>
+            <Popover disableItemsAutoClose={false}>
               <span>Popover</span>
             </Popover>
           </Card>
