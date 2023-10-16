@@ -3,7 +3,6 @@ import { PopoverContext, PopoverConfig } from './PopoverContext'
 import Tooltip from '../Tooltip'
 import useScale, { provideScale } from '../../hooks/useScale'
 import useClasses from '../../hooks/useClasses'
-import { usePopoverContext } from './PopoverContext'
 import { getReactNode } from '@momogoyo/shared'
 
 import type { PopoverProps } from './types'

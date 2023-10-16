@@ -18,8 +18,12 @@ const Page = () => {
         <span>제목 영역</span>
       </Popover.Item>
       <Popover.Item line />
+      <Popover.Item disableAutoClose={false}>
+        <span>자동 닫힘</span>
+      </Popover.Item>
+      <Popover.Item line />
       <Popover.Item disableAutoClose={true}>
-        <span>내용 영역</span>
+        <span>안 닫힘</span>
       </Popover.Item>
     </>
   )
@@ -57,7 +61,10 @@ const Page = () => {
             </Tooltip>
           </Card>
           <Card bgColor={'pink'} color={'#FFF'}>
-            <Popover content={content}>
+            <Popover 
+              content={content} 
+              // disableItemsAutoClose={true}
+            >
               <span>Popover</span>
             </Popover>
           </Card>
