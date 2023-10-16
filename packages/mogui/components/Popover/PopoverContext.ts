@@ -7,7 +7,7 @@ export type PopoverConfig = {
 
 const defaultContext = {
   disableItemsAutoClose: false,
-  onItemClick: () => {},
+  onItemClick: () => {}
 }
 
 export const PopoverContext = React.createContext<PopoverConfig>(defaultContext)

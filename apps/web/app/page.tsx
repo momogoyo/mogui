@@ -13,9 +13,15 @@ const Page = () => {
   }
 
   const content = () => (
-    <div style={{ padding: '0 10px' }}>
-      <p>A hyperp</p>
-    </div>
+    <>
+      <Popover.Item title>
+        <span>제목 영역</span>
+      </Popover.Item>
+      <Popover.Item line />
+      <Popover.Item disableAutoClose={true}>
+        <span>내용 영역</span>
+      </Popover.Item>
+    </>
   )
 
   useEffect(() => {
@@ -51,7 +57,7 @@ const Page = () => {
             </Tooltip>
           </Card>
           <Card bgColor={'pink'} color={'#FFF'}>
-            <Popover disableItemsAutoClose={false}>
+            <Popover content={content}>
               <span>Popover</span>
             </Popover>
           </Card>
