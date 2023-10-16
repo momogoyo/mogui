@@ -44,8 +44,6 @@ const PopoverComponent = ({
     onPopoverVisibleChange(customVisible)
   }, [customVisible])
 
-  disableItemsAutoClose
-
   return (
     <PopoverContext.Provider value={contextValue}>
       <Tooltip

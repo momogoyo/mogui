@@ -62,7 +62,8 @@ const Page = () => {
           </Card>
           <Card bgColor={'pink'} color={'#FFF'}>
             <Popover 
-              content={content} 
+              content={content}
+              type={'yellow'}
               // disableItemsAutoClose={true}
             >
               <span>Popover</span>
