@@ -69,7 +69,7 @@ const Page = () => {
               <span>Popover</span>
             </Popover>
           </CardComponent>
-          <Card shadow={true}>
+          <Card shadow={true} type={'white'}>
             <p>Card</p>
           </Card>
         </div>

@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { getStyles } from './styles'
 import useClasses from '../../hooks/useClasses'
 import useTheme from '../../hooks/useTheme'
 import useScale, { provideScale } from '../../hooks/useScale'
@@ -8,7 +9,7 @@ import type { CardProps } from './types'
 const CardComponent = ({
   hoverable = false,
   shadow = false,
-  type = 'default',
+  type = 'primary',
   className = '',
   children,
   ...props
@@ -17,6 +18,7 @@ const CardComponent = ({
   const { SCALES } = useScale()
   const theme = useTheme()
 
+  const { color, bgColor, borderColor } = useMemo(() => getStyles(type, theme.palette, shadow), [])
   const hoverShadow = useMemo(() => {
     if (shadow) return theme.expressiveness.shadowMedium
     return hoverable ? theme.expressiveness.shadowSmall : 'none'
@@ -32,7 +34,10 @@ const CardComponent = ({
       {/* @ts-ignore */}
       <style>{`
         .card {
-          background-color: ${theme.palette.background};
+          background: ${theme.palette.background};
+          background-color: ${bgColor};
+          color: ${color};
+          border 1px solid ${borderColor};
           box-shadow: ${shadow ? theme.expressiveness.shadowSmall : 'none'};
           transition: all 0.25s ease;
           width: ${SCALES.width(1, 'auto')};
