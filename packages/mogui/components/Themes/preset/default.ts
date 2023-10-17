@@ -24,7 +24,9 @@ export const palette: MoguiThemesPalette = {
 }
 
 export const expressiveness: MoguiThemesExpressiveness = {
-  shadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
+  shadowDefault: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+  shadowSmall: '0 5px 10px rgba(0, 0, 0, 0.12)',
+  shadowMedium: '0 8px 30px rgba(0, 0, 0, 0.12)'
 }
 
 export const defaultBreakpoints: MoguiThemesBreakpoints = {

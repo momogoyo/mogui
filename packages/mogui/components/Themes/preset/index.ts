@@ -18,7 +18,9 @@ export interface MoguiThemesPalette {
 }
 
 export interface MoguiThemesExpressiveness {
-  shadow: string
+  shadowDefault: string
+  shadowSmall: string
+  shadowMedium: string
 }
 
 export interface MoguiThemes {

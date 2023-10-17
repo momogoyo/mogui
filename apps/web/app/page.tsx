@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Tooltip, Popover } from '@momogoyo/mogui'
-import Card from '../components/Card'
+import { Tooltip, Popover, Card } from '@momogoyo/mogui'
+import { CardComponent } from '../components/Card'
 
 const Page = () => {
   const [mounted, setMounted] = useState<boolean>(false)
@@ -36,7 +36,7 @@ const Page = () => {
     <div className="mogui">
       {mounted && (
         <div>
-          <Card bgColor={'violet'}>
+          <CardComponent bgColor={'violet'}>
             <Tooltip
               type={'violet'}
               text={'Mogui Tooltip'}
@@ -48,8 +48,8 @@ const Page = () => {
             >
               <span>Tooltip</span>
             </Tooltip>
-          </Card>
-          <Card bgColor={'skyblue'}>
+          </CardComponent>
+          <CardComponent bgColor={'skyblue'}>
             <Tooltip
               type={'blue'}
               text={'Mogui Tooltip2'}
@@ -59,8 +59,8 @@ const Page = () => {
             >
               <span>Tooltip2</span>
             </Tooltip>
-          </Card>
-          <Card bgColor={'pink'} color={'#FFF'}>
+          </CardComponent>
+          <CardComponent bgColor={'pink'} color={'#FFF'}>
             <Popover 
               content={content}
               type={'yellow'}
@@ -68,6 +68,9 @@ const Page = () => {
             >
               <span>Popover</span>
             </Popover>
+          </CardComponent>
+          <Card shadow={true}>
+            <p>Card</p>
           </Card>
         </div>
       )}

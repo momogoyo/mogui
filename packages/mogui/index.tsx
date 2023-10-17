@@ -1,15 +1,18 @@
+import Themes from './components/Themes'
 import Tooltip from './components/Tooltip'
 import Popover from './components/Popover'
-import Themes from './components/Themes'
+import Card from './components/Card'
 
 export {
+  Themes,
   Tooltip,
   Popover,
-  Themes
+  Card
 }
 
 export default {
+  Themes,
   Tooltip,
   Popover,
-  Themes
+  Card
 }
