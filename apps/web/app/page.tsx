@@ -72,7 +72,7 @@ const Page = () => {
           <Card shadow={true} type={'white'}>
             <p>Card</p>
           </Card>
-          <CardComponent bgColor={'purple'} color={'#FFF'}>
+          <CardComponent bgColor={'purple'} color={'#FFF'} padding={'0px'}>
             <Image
               className="metheduxk-svg"
               src={'/image.svg'}

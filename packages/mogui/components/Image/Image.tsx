@@ -15,14 +15,14 @@ const Image = ({
   ...props
 }: ImageProp) => {
   const [loading, setLoading] = useState<boolean>(true)
-  const [skeleton, setSkeleton] = useState<boolean>(false)
+  const [skeleton, setSkeleton] = useState<boolean>(true)
   const imageRef = useRef<HTMLImageElement>(null)
+  const url = useMemo(() => transformDataSource(src), [src])
+  const showSkeleton = !disableSkeleton
 
   const theme = useTheme()
   const classes = useClasses('image', className)
   const { SCALES } = useScale()
-  const url = useMemo(() => transformDataSource(src), [src])
-  const showSkeleton = !disableSkeleton
   
   const imageLoaded = () => {
     if (!showSkeleton) return
@@ -34,9 +34,11 @@ const Image = ({
     if (!showSkeleton) return
     if (!imageRef.current) return
 
-    setLoading(false)
-    setSkeleton(false)
-  }, [])
+    if (imageRef.current.complete) {
+      setLoading(false)
+      setSkeleton(false)
+    }
+  })
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -50,7 +52,7 @@ const Image = ({
   
   return (
     <div className={classes}>
-      {skeleton && !disableSkeleton && <ImageSkeleton opacity={loading ? 0.5 : 0} />}
+      {skeleton && showSkeleton && <ImageSkeleton opacity={loading ? 0.5 : 0} />}
       <img
         ref={imageRef}
         src={url}

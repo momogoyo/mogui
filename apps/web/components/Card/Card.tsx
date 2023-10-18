@@ -1,12 +1,16 @@
 interface CardProps {
   bgColor?: string 
   color?: string 
+  padding?: string 
+  margin?: string 
   children?: React.ReactNode
 }
 
 const Card = ({
   bgColor = 'transparent',
   color = '#FFFFFF',
+  padding = '6px',
+  margin = '8px',
   children,
   ...props
 }: CardProps) => {
@@ -15,8 +19,8 @@ const Card = ({
       style={{
         color: color,
         backgroundColor: bgColor,
-        padding: '6px',
-        margin: '8px'
+        padding: padding,
+        margin: margin
       }}
       {...props}
     >
