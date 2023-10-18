@@ -8,3 +8,14 @@ export const getReactNode = (node?: React.ReactNode | (() => React.ReactNode)): 
 
   return (node as () => React.ReactNode)()
 }
+
+// URI로 데이터를 전달하기 위해서 인코딩
+export const transformDataSource = (src: string) => {
+  const left = src.slice(0, 4)
+  // 인코딩 된 <svg> 문자열: %3Csvg
+  if (encodeURIComponent(left) === '%3Csvg') {
+    return `data:image/svg+xml;utf8,${src}`
+  }
+
+  return src
+}

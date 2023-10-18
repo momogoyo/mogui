@@ -69,7 +69,7 @@ export type ScaleProps = {
 
 export type DynamicScalePipe = (scale1x: number, defaultValue?: string | number) => string
 export type DynamicScale = { [key in ScaleInputKeys]: DynamicScalePipe }
-export type GetScalePropsFunction = (key: keyof ScaleProps) => ScaleProps[keyof ScaleProps]
+export type GetScalePropsFunction = (key: keyof ScaleProps | Array<keyof ScaleProps>) => ScaleProps[keyof ScaleProps]
 export type GetAllScalePropsFunction = () => ScaleProps
 
 export interface ScaleConfig {

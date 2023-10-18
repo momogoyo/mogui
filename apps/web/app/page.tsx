@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Tooltip, Popover, Card } from '@momogoyo/mogui'
+import { Tooltip, Popover, Card, Image } from '@momogoyo/mogui'
 import { CardComponent } from '../components/Card'
 
 const Page = () => {
@@ -72,6 +72,14 @@ const Page = () => {
           <Card shadow={true} type={'white'}>
             <p>Card</p>
           </Card>
+          <CardComponent bgColor={'purple'} color={'#FFF'}>
+            <Image
+              className="metheduxk-svg"
+              src={'/image.svg'}
+              width={400}
+              height={200}
+            />
+          </CardComponent>
         </div>
       )}
 
