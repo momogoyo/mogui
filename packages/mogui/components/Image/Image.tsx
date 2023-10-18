@@ -1,13 +1,13 @@
 import { useRef, useState, useMemo, useEffect } from 'react'
 import { transformDataSource } from '@momogoyo/shared'
 import useClasses from '../../hooks/useClasses'
-import useScale from '../../hooks/useScale'
+import useScale, { provideScale } from '../../hooks/useScale'
 import useTheme from '../../hooks/useTheme'
 import ImageSkeleton from './ImageSkeleton'
 
 import type { ImageProp } from './types'
 
-const Image = ({
+const ImageComponent = ({
   src = '',
   disableSkeleton = false,
   maxDelay = 3000,
@@ -64,23 +64,27 @@ const Image = ({
       <style>{`
         .image {
           position: relative;
+          border-radius: ${theme.layout.radius};
+          overflow: hidden;
           max-width: 100%;
           width: ${SCALES.width(1, 'auto')};
           height: ${SCALES.height(1, 'auto')};
-          border-radius: ${theme.layout.radius};
           margin: ${SCALES.mt(0)} ${SCALES.mr(0, 'auto')} ${SCALES.mb(0)} ${SCALES.ml(0, 'auto')};
           padding: ${SCALES.pt(0)} ${SCALES.pr(0)} ${SCALES.pb(0)} ${SCALES.pl(0)};
         }
 
         img {
-          display: inline-block;
           width: ${SCALES.width(1, 'auto')};
           height: ${SCALES.height(1, 'auto')};
           object-fit: scale-down;
+          display: inline-block;
         }
       `}</style>
     </div>
   )
 }
+
+ImageComponent.displayName = 'MoguiImage'
+const Image: React.FC<ImageProp> = provideScale(ImageComponent)
 
 export default Image

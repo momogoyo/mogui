@@ -76,8 +76,8 @@ const Page = () => {
             <Image
               className="metheduxk-svg"
               src={'/image.svg'}
-              width={400}
-              height={200}
+              width={100}
+              height={100}
             />
           </CardComponent>
         </div>
