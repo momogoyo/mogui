@@ -1,6 +1,8 @@
+import React from 'react'
+
 import type { ImageSkeletonProp } from './types'
 
-const ImageSkeleton = ({
+const ImageSkeleton = React.memo(({
   opacity = 0.5,
   ...props
 }: ImageSkeletonProp) => {
@@ -10,7 +12,7 @@ const ImageSkeleton = ({
       {...props}
     >
       {/* @ts-ignore */}
-      <style>{`
+      <style jsx>{`
         .skeleton {
           position: absolute;
           left: 0;
@@ -35,7 +37,7 @@ const ImageSkeleton = ({
       `}</style>
     </div>
   )
-}
+})
 
 ImageSkeleton.displayName = 'MoguiImageSkeleton'
 export default ImageSkeleton
