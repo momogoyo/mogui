@@ -15,5 +15,7 @@
     "react": "^18.2.0",
     "typescript": "^4.5.2",
     "@momogoyo/shared": "workspace:*"
-  }
+  },
+  "author": "metheduxk@gmail.com",
+  "description": "momogoyo's MUI"
 }
