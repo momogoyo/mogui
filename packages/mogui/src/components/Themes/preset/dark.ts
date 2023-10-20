@@ -18,7 +18,9 @@ export const palette: MoguiThemesPalette = {
 }
 
 export const expressiveness: MoguiThemesExpressiveness = {
-  shadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
+  shadowDefault: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+  shadowSmall: 'string',
+  shadowMedium: 'string'
 }
 
 const themes: MoguiThemes = {

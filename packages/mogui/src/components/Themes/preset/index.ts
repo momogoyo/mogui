@@ -27,8 +27,8 @@ export interface MoguiThemes {
   mode: string
   palette: MoguiThemesPalette
   expressiveness: MoguiThemesExpressiveness
-  defaultBreakpoints: MoguiThemesBreakpoints
-  layout: MoguiThemesLayout
+  defaultBreakpoints?: MoguiThemesBreakpoints
+  layout?: MoguiThemesLayout
 }
 
 interface BreakpointsItem {

@@ -1,21 +1,41 @@
 {
   "name": "@momogoyo/mogui",
   "version": "0.0.1",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "license": "MIT",
   "scripts": {
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
+    "publish": "pnpm build && npm publish",
     "generate:component": "turbo gen react-component"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "react": "^18.2.0",
+    "@types/react-dom": "^18.2.3",
     "typescript": "^4.5.2",
+    "vite": "^4.5.0"
+  },
+  "dependencies": {
     "@momogoyo/shared": "workspace:*"
   },
   "author": "metheduxk@gmail.com",
-  "description": "momogoyo's MUI"
+  "description": "momogoyo's MUI",
+  "files": [
+    "dist",
+    "types"
+  ]
 }
