@@ -1,6 +1,6 @@
 {
   "name": "@momogoyo/mogui",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./types/index.d.ts",
@@ -30,7 +30,7 @@
     "vite": "^4.5.0"
   },
   "dependencies": {
-    "@momogoyo/shared": "workspace:*"
+    "@momogoyo/shared": "workspace:^"
   },
   "author": "metheduxk@gmail.com",
   "description": "momogoyo's MUI",
