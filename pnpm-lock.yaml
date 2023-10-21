@@ -59,7 +59,7 @@ importers:
   packages/mogui:
     dependencies:
       '@momogoyo/shared':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../shared
       react:
         specifier: ^18.2.0

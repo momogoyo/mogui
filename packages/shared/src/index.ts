@@ -19,3 +19,10 @@ export const transformDataSource = (src: string) => {
 
   return src
 }
+
+export default {
+  tuple,
+  isCSSNumberValue,
+  getReactNode,
+  transformDataSource
+}
