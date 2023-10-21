@@ -1,6 +1,6 @@
 {
   "name": "@momogoyo/mogui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./dist/mogui.umd.js",
   "module": "./dist/mogui.mjs",
   "types": "./types/index.d.ts",
