@@ -1,3 +1,4 @@
+import MoguiProvider from './components/Provider'
 import Themes from './components/Themes'
 import Tooltip from './components/Tooltip'
 import Popover from './components/Popover'
@@ -6,6 +7,7 @@ import Image from './components/Image'
 import Text from './components/Text'
 
 export {
+  MoguiProvider,
   Themes,
   Tooltip,
   Popover,
@@ -15,6 +17,7 @@ export {
 }
 
 export default {
+  MoguiProvider,
   Themes,
   Tooltip,
   Popover,

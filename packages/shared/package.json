@@ -1,6 +1,7 @@
 {
   "name": "@momogoyo/shared",
-  "version": "0.0.2",
+  "version": "0.0.5",
+  "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./types/index.d.ts",
   "exports": {

@@ -6,7 +6,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, './src/index.ts'),
       name: 'Shared',
-      fileName: `index.js`,
+      fileName: `index`,
       formats: ['es', 'umd']
     }
   },
