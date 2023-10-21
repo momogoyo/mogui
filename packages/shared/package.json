@@ -1,10 +1,19 @@
 {
   "name": "@momogoyo/shared",
-  "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "version": "0.0.1",
+  "module": "./dist/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "license": "MIT",
   "scripts": {
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
+    "publish": "pnpm build && npm publish",
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
@@ -13,6 +22,7 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "react": "^18.2.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "vite": "^4.5.0"
   }
 }
