@@ -1,23 +1,23 @@
-// import Themes from './components/Themes'
-// import Tooltip from './components/Tooltip'
-// import Popover from './components/Popover'
-// import Card from './components/Card'
-// import Image from './components/Image'
-
+import Themes from './components/Themes'
+import Tooltip from './components/Tooltip'
+import Popover from './components/Popover'
+import Card from './components/Card'
+import Image from './components/Image'
 import Text from './components/Text'
 
-export default {
-  // Card
-  // Tooltip,
-  // Popover,
-  // Card,
+export {
+  Themes,
+  Tooltip,
+  Popover,
+  Image,
+  Card,
   Text
 }
 
-// export default {
-//   Themes,
-//   Tooltip,
-//   Popover,
-//   Card,
-//   Image
-// }
+export default {
+  Themes,
+  Tooltip,
+  Popover,
+  Card,
+  Image
+}
