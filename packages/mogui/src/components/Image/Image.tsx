@@ -62,7 +62,7 @@ const ImageComponent = ({
       />
 
       {/* @ts-ignore */}
-      <style>{`
+      <style jsx>{`
         .image {
           position: relative;
           border-radius: ${theme.layout.radius};

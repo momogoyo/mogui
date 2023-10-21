@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import ThemeProvider from './theme-provider'
 import { MoguiContent } from './mogui-context'
 
 import type { MoguiContextParams } from './mogui-context'
@@ -15,7 +14,9 @@ const MoguiProvider = ({
   themeType,
   children
 }: React.PropsWithChildren<MoguiProviderProps>) => {
-  const initialValue = useMemo<MoguiContextParams>(() => ({}), [])
+  const initialValue = useMemo<MoguiContextParams>(() => ({
+    
+  }), [])
   
   return (
     <MoguiContent.Provider value={initialValue}>

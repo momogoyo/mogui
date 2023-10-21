@@ -1,9 +1,4 @@
 import MoguiProvider from './mogui-provider'
 
-export {
-  MoguiProvider
-}
-
-export default {
-  MoguiProvider
-}
+export type { MoguiProviderProps } from './mogui-provider'
+export default MoguiProvider
