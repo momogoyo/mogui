@@ -1,17 +1,42 @@
 import { tuple } from '@momogoyo/shared'
 
 export interface MoguiThemesPalette {
+  // primary
   primary: string
-  rose: string
-  blue: string
-  green: string
-  orange: string
-  yellow: string
-  cement: string
-  stone: string
-  red: string
-  violet: string
-  white: string
+  onPrimary: string
+  primaryContainer: string
+  onPrimaryContainer: string
+  primaryFixed: string
+  onPrimaryFixed: string
+  primaryFixedDim: string
+  onPrimaryFixedVariant: string
+  // secondary
+  secondary: string
+  onSecondary: string
+  secondaryContainer: string
+  onSecondaryContainer: string
+  secondaryFixed: string
+  onSecondaryFixed: string
+  secondaryFixedDim: string
+  onSecondaryFixedVariant: string
+  // tertiary
+  tertiary: string
+  onTertiary: string
+  tertiaryContainer: string
+  onTertiaryContainer: string
+  tertiaryFixed: string
+  onTertiaryFixed: string
+  tertiaryFixedDim: string
+  onTertiaryFixedVariant: string
+  // error
+  error: string
+  onError: string
+  errorContainer: string
+  onErrorContainer: string
+  errorFixed: string
+  onErrorFixed: string
+  errorFixedDim: string
+  onErrorFixedVariant: string
   background: string
   foreground: string
   border: string

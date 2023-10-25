@@ -15,7 +15,7 @@ export const getStyles = (
   const styles: { [key in CardType]: Omit<CardStyles, 'borderColor'> } = {
     primary: {
       color: palette.background,
-      bgColor: palette.primary
+      bgColor: palette.primary10
     },
     rose: {
       color: palette.background,

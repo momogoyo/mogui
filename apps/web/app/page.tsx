@@ -69,7 +69,7 @@ const Page = () => {
               <span>Popover</span>
             </Popover>
           </CardComponent>
-          <Card shadow={true} type={'white'}>
+          <Card shadow={true}>
             <p>Card</p>
           </Card>
           <CardComponent color={'#FFF'} padding={'0px'}>
