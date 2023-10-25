@@ -57,7 +57,6 @@ const PopoverComponent = ({
       >
         {children}
 
-        {/* @ts-ignore */}
         <style jsx>{`
           :global(.tooltip-content.popover > .inner) {
             padding: ${SCALES.pt(0.9)} ${SCALES.pr(0)} ${SCALES.pb(0.9)} ${SCALES.pl(0)};

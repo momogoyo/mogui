@@ -61,7 +61,6 @@ const ImageComponent = ({
         {...props}
       />
 
-      {/* @ts-ignore */}
       <style jsx>{`
         .image {
           position: relative;

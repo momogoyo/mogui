@@ -48,7 +48,6 @@ const TooltipContent = ({
           {children}
         </div>
         
-        {/* @ts-ignore */}
         <style jsx>{`
           .tooltip-content {
             --tooltip-placement-offset-x: ${placementOffset.x};

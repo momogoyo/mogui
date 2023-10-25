@@ -16,7 +16,6 @@ const TooltipPlacement = ({
   
   return (
     <span>
-      {/* @ts-ignore */}
       <style jsx>{`
         span {
           position: absolute;

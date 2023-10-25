@@ -31,7 +31,6 @@ const CardComponent = ({
     >
       {children}
 
-      {/* @ts-ignore */}
       <style jsx>{`
         .card {
           background: ${theme.palette.background};

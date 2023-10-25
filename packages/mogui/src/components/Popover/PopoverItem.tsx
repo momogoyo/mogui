@@ -39,7 +39,6 @@ const PopoverItemComponent = ({
       >
         {children}
         
-        {/* @ts-ignore */}
         <style jsx>{`
           .item {
             display: flex;

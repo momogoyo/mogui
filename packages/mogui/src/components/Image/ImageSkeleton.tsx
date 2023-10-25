@@ -11,7 +11,7 @@ const ImageSkeleton = React.memo(({
       className="skeleton"
       {...props}
     >
-      {/* @ts-ignore */}
+      
       <style jsx>{`
         .skeleton {
           position: absolute;

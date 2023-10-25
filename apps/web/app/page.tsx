@@ -12,7 +12,7 @@ const Page = () => {
     setVisible(state)
   }
 
-  const content = () => (
+  const content = (): React.ReactNode => (
     <>
       <Popover.Item title>
         <span>제목 영역</span>

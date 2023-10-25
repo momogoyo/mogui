@@ -96,7 +96,6 @@ const TooltipComponent = ({
         {text}
       </TooltipContent>
       
-      {/* @ts-ignore */}
       <style jsx>{`
         .tooltip {
           width: max-content;
