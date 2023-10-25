@@ -12,19 +12,13 @@ export const getColors = (
 ) => {
   const colors: { [key in ColorTypes]: string } = {
     primary: palette.primary,
-    rose: palette.rose,
-    blue: palette.blue,
-    green: palette.green,
-    orange: palette.orange,
-    yellow: palette.yellow,
-    cement: palette.cement,
-    stone: palette.stone,
-    red: palette.red,
-    violet: palette.violet,
-    white: palette.white
+    secondary: palette.secondary,
+    tertiary: palette.tertiary,
+    error: palette.error,
+    neutral: palette.neutral
   }
 
-  const color = mode === 'white' ? palette.foreground : palette.background
+  const color = mode === 'neutral' ? palette.foreground : palette.background
 
   return {
     color,

@@ -15,47 +15,23 @@ export const getStyles = (
   const styles: { [key in CardType]: Omit<CardStyles, 'borderColor'> } = {
     primary: {
       color: palette.background,
-      bgColor: palette.primary10
+      bgColor: palette.primaryContainer
     },
-    rose: {
+    secondary: {
       color: palette.background,
-      bgColor: palette.rose
+      bgColor: palette.secondaryContainer
     },
-    blue: {
+    tertiary: {
       color: palette.background,
-      bgColor: palette.blue
+      bgColor: palette.tertiaryContainer
     },
-    green: {
+    error: {
       color: palette.background,
-      bgColor: palette.green
+      bgColor: palette.errorContainer
     },
-    orange: {
+    neutral: {
       color: palette.background,
-      bgColor: palette.orange
-    },
-    yellow: {
-      color: palette.background,
-      bgColor: palette.yellow
-    },
-    cement: {
-      color: palette.background,
-      bgColor: palette.cement
-    },
-    stone: {
-      color: palette.background,
-      bgColor: palette.stone
-    },
-    red: {
-      color: palette.background,
-      bgColor: palette.red
-    },
-    violet: {
-      color: palette.background,
-      bgColor: palette.violet
-    },
-    white: {
-      color: palette.foreground,
-      bgColor: palette.white
+      bgColor: palette.neutralContainer
     }
   }
 

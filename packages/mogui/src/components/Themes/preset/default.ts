@@ -1,73 +1,12 @@
+import { tonal } from './index'
+
 import type {
   MoguiThemesPalette,
   MoguiThemes,
   MoguiThemesExpressiveness,
   MoguiThemesLayout,
-  MoguiThemesBreakpoints
+  MoguiThemesBreakpoints,
 } from './index'
-
-export const tonal = {
-  primary10: '#21005D',
-  primary20: '#381E72',
-  primary30: '#4F378B',
-  primary40: '#6750A4',
-  primary50: '#7F67BE',
-  primary60: '#9A82DB',
-  primary70: '#B69DF8',
-  primary80: '#D0BCFF',
-  primary90: '#EADDFF',
-  primary95: '#F6EDFF',
-  primary99: '#FFFBFE',
-  primary100: '#FFFFFF',
-  secondary10: '#1D192B',
-  secondary20: '#332D41',
-  secondary30: '#4A4458',
-  secondary40: '#625B71',
-  secondary50: '#7A7289',
-  secondary60: '#958DA5',
-  secondary70: '#B0A7C0',
-  secondary80: '#CCC2DC',
-  secondary90: '#E8DEF8',
-  secondary95: '#F6EDFF',
-  secondary99: '#FFFBFE',
-  secondary100: '#FFFFFF',
-  tertiary10: '#31111D',
-  tertiary20: '#492532',
-  tertiary30: '#633B48',
-  tertiary40: '#7D5260',
-  tertiary50: '#986977',
-  tertiary60: '#B58392',
-  tertiary70: '#D29DAC',
-  tertiary80: '#EFB8C8',
-  tertiary90: '#FFD8E4',
-  tertiary95: '#FFECF1',
-  tertiary99: '#FFFBFA',
-  tertiary100: '#FFFFFF',
-  error10: '#410E0B',
-  error20: '#601410',
-  error30: '#8C1D18',
-  error40: '#B3261E',
-  error50: '#DC362E',
-  error60: '#E46962',
-  error70: '#EC928E',
-  error80: '#F2B8B5',
-  error90: '#F9DEDC',
-  error95: '#FFECF1',
-  error99: '#FFFBFA',
-  error100: '#FFFFFF',
-  neutral10: '#1D1B20',
-  neutral20: '#48464C',
-  neutral30: '#48464C',
-  neutral40: '#605D64',
-  neutral50: '#79767D',
-  neutral60: '#938F96',
-  neutral70: '#AEA9B1',
-  neutral80: '#CAC5CD',
-  neutral90: '#E6E0E9',
-  neutral95: '#F5EFF7',
-  neutral99: '#FFFBFA',
-  neutral100: '#FFFFFF'
-}
 
 export const palette: MoguiThemesPalette = {
   primary: tonal.primary40,
@@ -106,9 +45,18 @@ export const palette: MoguiThemesPalette = {
   errorFixedDim: tonal.error80,
   onErrorFixedVariant: tonal.error30,
 
-  background: '#FFFFFF',
-  foreground: '#09090B',
-  border: '#E5E7EB'
+  neutral: tonal.neutral99,
+  onNeutral: tonal.neutral10,
+  neutralContainer: tonal.neutral95,
+  onNeutralContainer: tonal.neutral90,
+  neutralInverse: tonal.neutral20,
+  onNeutralInverse: tonal.neutral95,
+  neutralFixedDim: tonal.neutral80,
+  neutralFixedVariant: tonal.neutral30,
+
+  background: tonal.primary100,
+  foreground: tonal.neutral10,
+  border: tonal.outline
 }
 
 export const expressiveness: MoguiThemesExpressiveness = {

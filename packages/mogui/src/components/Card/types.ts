@@ -2,16 +2,10 @@ import { tuple } from '@momogoyo/shared'
 
 const cardType = tuple(
     'primary',
-    'rose',
-    'blue',
-    'green',
-    'orange',
-    'yellow',
-    'cement',
-    'stone',
-    'red',
-    'violet',
-    'white'
+    'secondary',
+    'tertiary',
+    'error',
+    'neutral'
   )
 
 export type CardType = typeof cardType[number]
