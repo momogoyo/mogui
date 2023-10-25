@@ -22,7 +22,8 @@ export default defineConfig({
       output: {
         exports: 'named',
         globals: {
-          mogui: 'Mogui'
+          react: 'React',
+          'react-dom': 'ReactDOM'
         }
       }
     }
