@@ -7,7 +7,7 @@ const triggerTypes = tuple('hover', 'click')
 type TriggerTypes = typeof triggerTypes[number]
 
 interface Props {
-  content?: React.ReactNode | (() => React.ReactNode)
+  content?: string | React.ReactNode | (() => React.ReactNode)
   trigger?: TriggerTypes
   placement?: Placement
   disableItemsAutoClose?: boolean

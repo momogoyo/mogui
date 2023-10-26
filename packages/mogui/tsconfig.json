@@ -16,9 +16,12 @@
   },
   "include": [
     "src/**/*"
-, "styled-jsx.d.ts"  ],
+  ],
   "exclude": [
     "node_modules",
     "dist"
+  ],
+  "files": [
+    "styled-jsx.d.ts"
   ]
 }

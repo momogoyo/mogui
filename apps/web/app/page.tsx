@@ -38,7 +38,6 @@ const Page = () => {
         <div>
           <CardComponent bgColor={'violet'}>
             <Tooltip
-              type={'violet'}
               text={'Mogui Tooltip'}
               initialVisible={true}
               visible={visible}
@@ -51,7 +50,7 @@ const Page = () => {
           </CardComponent>
           <CardComponent bgColor={'skyblue'}>
             <Tooltip
-              type={'blue'}
+              type={'neutral'}
               text={'Mogui Tooltip2'}
               initialVisible={true}
               trigger={'click'}
@@ -62,9 +61,8 @@ const Page = () => {
           </CardComponent>
           <CardComponent bgColor={'pink'} color={'#FFF'}>
             <Popover 
-              content={content}
-              type={'neutral'}
-              // disableItemsAutoClose={true}
+              content={content as any}
+              disableItemsAutoClose={true}
             >
               <span>Popover</span>
             </Popover>

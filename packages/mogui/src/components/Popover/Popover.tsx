@@ -27,8 +27,8 @@ const PopoverComponent = ({
   const [visible, setVisible] = useState<boolean>(initialVisible)
   const { SCALES } = useScale()
   const classes = useClasses('popover', portalClassName)
+
   const textNode = useMemo(() => getReactNode(content), [content])
-  
   const contextValue = useMemo<PopoverConfig>(() => ({
     onItemClick: () => onPopoverVisibleChange(false),
     disableItemsAutoClose
