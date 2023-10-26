@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Tooltip, Popover, Card, Image } from '@momogoyo/mogui'
 import { CardComponent } from '../components/Card'
+import DockBar from '@/components/DockBar'
 
 const Page = () => {
   const [mounted, setMounted] = useState<boolean>(false)
@@ -12,22 +13,7 @@ const Page = () => {
     setVisible(state)
   }
 
-  const content = (): React.ReactNode => (
-    <>
-      <Popover.Item title>
-        <span>제목 영역</span>
-      </Popover.Item>
-      <Popover.Item line />
-      <Popover.Item disableAutoClose={false}>
-        <span>자동 닫힘</span>
-      </Popover.Item>
-      <Popover.Item line />
-      <Popover.Item disableAutoClose={true}>
-        <span>안 닫힘</span>
-      </Popover.Item>
-    </>
-  )
-
+  
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -36,6 +22,7 @@ const Page = () => {
     <div className="mogui">
       {mounted && (
         <div>
+          <DockBar />
           <CardComponent bgColor={'violet'}>
             <Tooltip
               text={'Mogui Tooltip'}
@@ -58,14 +45,6 @@ const Page = () => {
             >
               <span>Tooltip2</span>
             </Tooltip>
-          </CardComponent>
-          <CardComponent bgColor={'pink'} color={'#FFF'}>
-            <Popover 
-              content={content as any}
-              disableItemsAutoClose={true}
-            >
-              <span>Popover</span>
-            </Popover>
           </CardComponent>
           <Card shadow={true}>
             <p>Card</p>
