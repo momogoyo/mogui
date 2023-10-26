@@ -1,4 +1,4 @@
-import lightMode from './preset/default'
+import lightMode from './preset/light'
 
 import type { MoguiThemes, MoguiThemesPalette, ColorTypes } from './preset'
 

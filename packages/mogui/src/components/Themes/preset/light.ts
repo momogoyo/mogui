@@ -1,4 +1,4 @@
-import { tonal } from './index'
+import { tonal } from './tonal'
 
 import type {
   MoguiThemesPalette,
