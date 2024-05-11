@@ -14,25 +14,29 @@ export const getStyles = (
 ): CardStyles => {
   const styles: { [key in CardType]: Omit<CardStyles, 'borderColor'> } = {
     primary: {
-      color: palette.background,
-      bgColor: palette.primaryContainer
+      color: palette.foreground,
+      bgColor: palette.background,
     },
     secondary: {
       color: palette.background,
-      bgColor: palette.secondaryContainer
+      bgColor: palette.secondary
     },
     tertiary: {
       color: palette.background,
-      bgColor: palette.tertiaryContainer
+      bgColor: palette.tertiary
+    },
+    success: {
+      color: palette.background,
+      bgColor: palette.success,
+    },
+    warning: {
+      color: palette.background,
+      bgColor: palette.warning,
     },
     error: {
       color: palette.background,
-      bgColor: palette.errorContainer
+      bgColor: palette.error,
     },
-    neutral: {
-      color: palette.background,
-      bgColor: palette.neutralContainer
-    }
   }
 
   return {

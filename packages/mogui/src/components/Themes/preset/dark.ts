@@ -1,72 +1,47 @@
 import { tonal } from './tonal'
 
+import {
+  expressiveness,
+  breakpoints,
+  layout
+} from './shared'
+
 import type {
   MoguiThemesPalette,
   MoguiThemes,
-  MoguiThemesExpressiveness
 } from './index'
 
 export const palette: MoguiThemesPalette = {
-  primary: tonal.primary80,
-  onPrimary: tonal.primary20,
-  primaryContainer: tonal.primary30,
-  onPrimaryContainer: tonal.primary90,
-  primaryFixed: tonal.primary90,
-  onPrimaryFixed: tonal.primary10,
-  primaryFixedDim: tonal.primary80,
-  onPrimaryFixedVariant: tonal.primary30,
+  red: '#ff6961',
+  orange: '#ffb340',
+  yellow: '#ffd426',
+  green: '#30db5b',
+  mint: '#66d4cf',
+  teal: '#5de6ff',
+  cyan: '#70d7ff',
+  blue: '#409cff',
+  indigo: '#7d7aff',
+  purple: '#da8fff',
+  pink: '#ff6482',
+  brown: '#b59469',
 
-  secondary: tonal.secondary80,
-  onSecondary: tonal.secondary20,
-  secondaryContainer: tonal.secondary30,
-  onSecondaryContainer: tonal.secondary90,
-  secondaryFixed: tonal.secondary90,
-  onSecondaryFixed: tonal.secondary10,
-  secondaryFixedDim: tonal.secondary80,
-  onSecondaryFixedVariant: tonal.secondary30,
+  secondary: '#40c8e0',
+  tertiary: '#63e6e2',
+  success: '#30d158',
+  warning: '#ffd60a',
+  error: '#ff453a',
 
-  tertiary: tonal.tertiary80,
-  onTertiary: tonal.tertiary20,
-  tertiaryContainer: tonal.tertiary30,
-  onTertiaryContainer: tonal.tertiary90,
-  tertiaryFixed: tonal.tertiary90,
-  onTertiaryFixed: tonal.tertiary10,
-  tertiaryFixedDim: tonal.tertiary80,
-  onTertiaryFixedVariant: tonal.tertiary30,
-
-  error: tonal.error80,
-  onError: tonal.error20,
-  errorContainer: tonal.error30,
-  onErrorContainer: tonal.error90,
-  errorFixed: tonal.error90,
-  onErrorFixed: tonal.error10,
-  errorFixedDim: tonal.error80,
-  onErrorFixedVariant: tonal.error30,
-
-  neutral: tonal.neutral99,
-  onNeutral: tonal.neutral10,
-  neutralContainer: tonal.neutral95,
-  onNeutralContainer: tonal.neutral90,
-  neutralInverse: tonal.neutral20,
-  onNeutralInverse: tonal.neutral95,
-  neutralFixedDim: tonal.neutral80,
-  neutralFixedVariant: tonal.neutral30,
-
-  background: tonal.neutral10,
-  foreground: tonal.primary100,
-  border: tonal.outline
-}
-
-export const expressiveness: MoguiThemesExpressiveness = {
-  shadowDefault: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-  shadowSmall: 'string',
-  shadowMedium: 'string'
+  border: tonal.gray_6,
+  foreground: tonal.white,
+  background: tonal.black
 }
 
 const themes: MoguiThemes = {
-  mode: 'light',
+  mode: 'dark',
   palette,
-  expressiveness
+  expressiveness,
+  breakpoints,
+  layout
 }
 
 export default themes

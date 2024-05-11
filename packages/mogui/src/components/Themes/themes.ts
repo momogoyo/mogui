@@ -11,14 +11,15 @@ export const getColors = (
   palette: MoguiThemesPalette
 ) => {
   const colors: { [key in ColorTypes]: string } = {
-    primary: palette.primary,
-    secondary: palette.secondary,
-    tertiary: palette.tertiary,
-    error: palette.error,
-    neutral: palette.neutral
+    primary: palette.teal,
+    secondary: palette.mint,
+    tertiary: palette.blue,
+    success: palette.green,
+    warning: palette.yellow,
+    error: palette.red,
   }
 
-  const color = mode === 'neutral' ? palette.foreground : palette.background
+  const color = mode === 'primary' ? palette.foreground : palette.background
 
   return {
     color,

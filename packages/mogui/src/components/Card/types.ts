@@ -4,8 +4,9 @@ const cardType = tuple(
     'primary',
     'secondary',
     'tertiary',
+    'success',
+    'warning',
     'error',
-    'neutral'
   )
 
 export type CardType = typeof cardType[number]
