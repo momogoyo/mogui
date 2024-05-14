@@ -5,6 +5,7 @@ import Popover from './components/Popover'
 import Card from './components/Card'
 import Image from './components/Image'
 import Text from './components/Text'
+import Select from './components/Select'
 
 export {
   MoguiProvider,
@@ -13,7 +14,8 @@ export {
   Popover,
   Image,
   Card,
-  Text
+  Text,
+  Select
 }
 
 export default {
@@ -22,5 +24,6 @@ export default {
   Tooltip,
   Popover,
   Card,
-  Image
+  Image,
+  Select
 }

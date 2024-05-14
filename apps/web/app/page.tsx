@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Card, Text } from '@momogoyo/mogui'
+import { Select } from '@momogoyo/mogui'
 
 const Page = () => {
   const [mounted, setMounted] = useState<boolean>(false)
@@ -14,12 +14,7 @@ const Page = () => {
     <div className="mogui">
       {mounted && (
         <div id="moguiCard">
-          <Card type={'primary'}>default</Card>
-          <Card type={'secondary'}>secondary</Card>
-          <Card type={'tertiary'}>tertiary</Card>
-          <Card type={'success'}>success</Card>
-          <Card type={'warning'}>warning</Card>
-          <Card type={'error'}>error</Card>
+          <Select></Select>
         </div>
       )}
 

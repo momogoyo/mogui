@@ -1,11 +1,30 @@
-import { useRef, useState } from "react"
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState
+} from 'react'
 
-const SelectInput = ({
+import type { SelectInputProps } from './types'
+
+const SelectInput = forwardRef<HTMLInputElement | null, SelectInputProps>(({
   visible,
   onBlur,
   onFocus
 }, inputRef) => {
   const ref = useRef<HTMLInputElement | null>(null)
+
+  useImperativeHandle<HTMLInputElement | null, HTMLInputElement | null>(
+    inputRef,
+    () => ref.current
+  )
+
+  useEffect(() => {
+    if (visible) {
+      ref.current?.focus()
+    }
+  }, [visible])
 
   return (
     <>
@@ -17,9 +36,15 @@ const SelectInput = ({
         onBlur={onBlur}
         onFocus={onFocus}
       />
+
+      <style jsx>{`
+        input {
+          display: none;
+        }
+      `}</style>
     </>
   )
-}
+})
 
 SelectInput.displayName = 'MoguiSelectInput'
 export default SelectInput

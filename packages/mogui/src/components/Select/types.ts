@@ -10,6 +10,12 @@ export type SelectRef = {
   scrollTo?: (options?: ScrollToOptions) => void
 }
 
+export type SelectInputProps = {
+  visible: boolean
+  onBlur: () => void
+  onFocus: () => void
+}
+
 export type SelectTypes = NormalTypes
 
 interface Props {

@@ -75,7 +75,7 @@ const SelectComponent = ({
       {...props}
     >
       <SelectInput 
-        // ref={inputRef}
+        ref={inputRef}
         visible={visible}
         onBlur={onInputBlur}
         onFocus={() => setSelectFocus(true)}

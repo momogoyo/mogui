@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "tsc && vite build --watch",
+    "dev": "tsc --watch && vite build --watch",
     "build": "tsc && vite build",
     "publish": "pnpm build && npm publish",
     "generate:component": "turbo gen react-component"
