@@ -1,5 +1,5 @@
 import { tuple } from '@momogoyo/shared'
-import { CSSProperties } from 'react'
+import { CSSProperties, MutableRefObject } from 'react'
 
 const normalTypes = tuple('default', 'secondary', 'success', 'warning', 'error')
 export type NormalTypes = typeof normalTypes[number]
@@ -39,3 +39,12 @@ interface Props {
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>
 export type SelectProps = Props & NativeAttrs
+
+export interface SelectConfig {
+  value?: string | string[]
+  visible?: boolean
+  updateValue?: (next: string | undefined) => unknown
+  updateVisible?: (next: boolean) => unknown
+  ref?: MutableRefObject<HTMLElement | null>
+  disableAll?: boolean
+}

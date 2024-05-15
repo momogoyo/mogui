@@ -14,7 +14,7 @@ const Page = () => {
     <div className="mogui">
       {mounted && (
         <div id="moguiCard">
-          <Select></Select>
+          <Select placeholder="선택하세요"></Select>
         </div>
       )}
 

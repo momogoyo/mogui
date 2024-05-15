@@ -2,9 +2,11 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { provideScale } from '@/hooks/useScale'
 import useClasses from '@/hooks/useClasses'
 
+import Ellipsis from '@/components/Ellipsis'
+import { SelectContext } from './SelectInputContext'
 import SelectInput from './SelectInput'
 
-import type { SelectProps } from './types'
+import type { SelectProps, SelectConfig } from './types'
 
 const SelectComponent = ({
   children,
@@ -34,6 +36,7 @@ const SelectComponent = ({
   
   const isEmpty = useMemo(() => {
     if (!Array.isArray(value)) return !value
+
     return value.length === 0
   }, [value])
 
@@ -46,6 +49,17 @@ const SelectComponent = ({
     onDropdownVisibleChange(next)
     setVisible(next)
   }
+
+  const updateValue = () => {}
+
+  const initialize: SelectConfig = useMemo(() => ({
+    value,
+    visible,
+    updateValue,
+    updateVisible,
+    ref,
+    disableAll: disabled
+  }), [visible, disabled, ref, value, multiple])
 
   const clickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation() // 상위 관련 다른 모든 이벤트 버블링 차단
@@ -68,24 +82,33 @@ const SelectComponent = ({
   }, [customValue])
 
   return (
-    <div
-      className={classes}
-      ref={ref}
-      onClick={clickHandler}
-      {...props}
-    >
-      <SelectInput 
-        ref={inputRef}
-        visible={visible}
-        onBlur={onInputBlur}
-        onFocus={() => setSelectFocus(true)}
-      />
-      {isEmpty && (
-        <span className="value placeholder">
-          {/* <Ellipsis>{placeholder}</Ellipsis> */}
-        </span>
-      )}
-    </div>
+    <SelectContext.Provider value={initialize}>
+      <div
+        className={classes}
+        ref={ref}
+        onClick={clickHandler}
+        {...props}
+      >
+        <SelectInput 
+          ref={inputRef}
+          visible={visible}
+          onBlur={onInputBlur}
+          onFocus={() => setSelectFocus(true)}
+        />
+        {isEmpty && (
+          <span className="value placeholder">
+            <Ellipsis height="var(--select-height)">{placeholder}</Ellipsis>
+          </span>
+        )}
+
+        <style jsx>{`
+          .select {
+            --select-height: SCALES.height(2.25);
+          } 
+            
+        `}</style>
+      </div>
+    </SelectContext.Provider>
   )
 }
 

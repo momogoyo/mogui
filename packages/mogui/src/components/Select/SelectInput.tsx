@@ -15,10 +15,10 @@ const SelectInput = forwardRef<HTMLInputElement | null, SelectInputProps>(({
 }, inputRef) => {
   const ref = useRef<HTMLInputElement | null>(null)
 
-  useImperativeHandle<HTMLInputElement | null, HTMLInputElement | null>(
-    inputRef,
-    () => ref.current
-  )
+  // useImperativeHandle<HTMLInputElement | null, HTMLInputElement | null>(
+  //   inputRef,
+  //   () => ref.current
+  // )
 
   useEffect(() => {
     if (visible) {
