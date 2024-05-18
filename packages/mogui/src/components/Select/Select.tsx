@@ -1,10 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { provideScale } from '@/hooks/useScale'
 import useClasses from '@/hooks/useClasses'
+import useTheme from '@/hooks/useTheme'
+import useScale from '@/hooks/useScale'
 
+import { tonal } from '@/components/Themes/preset'
+import { getColors } from '@/components/Select/styles'
 import Ellipsis from '@/components/Ellipsis'
 import { SelectContext } from './SelectInputContext'
 import SelectInput from './SelectInput'
+import SelectDropdown from './SelectDropdown'
 
 import type { SelectProps, SelectConfig } from './types'
 
@@ -28,11 +33,16 @@ const SelectComponent = ({
   onDropdownVisibleChange,
   ...props
 }: React.PropsWithChildren<SelectProps>, selectRef) => {
+  const theme = useTheme()
+  const { SCALES } = useScale()
   const ref = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const [visible, setVisible] = useState<boolean>(false)
   const [selectFocus, setSelectFocus] = useState<boolean>(false)
   const [value, setValue] = useState<string | string[] | undefined>('')
+
+  const { placeholderColor, border } = getColors(theme.palette, type)
   
   const isEmpty = useMemo(() => {
     if (!Array.isArray(value)) return !value
@@ -46,7 +56,6 @@ const SelectComponent = ({
   }, className)
 
   const updateVisible = (next: boolean) => {
-    onDropdownVisibleChange(next)
     setVisible(next)
   }
 
@@ -101,10 +110,45 @@ const SelectComponent = ({
           </span>
         )}
 
+        <SelectDropdown 
+          visible={visible}
+          className={dropdownClassName}
+        >
+          {children}
+        </SelectDropdown>
+
         <style jsx>{`
           .select {
-            --select-height: SCALES.height(2.25);
-          } 
+            --select-font-size: ${SCALES.font(0.875)};
+            --select-height: ${SCALES.height(2.25)};
+            
+            position: relative;
+            display: flex;
+            align-items: center;
+            max-width: 90vw;
+            min-width: 11.5em;
+            width: ${SCALES.width(1, 'initial')};
+            height: var(--select-height);            
+            border: 1px solid ${border};
+            border-radius: ${theme.layout.radius};
+            background-color: ${disabled ? tonal.grayDark_3 : theme.palette.background};
+            padding: ${SCALES.pt(0), SCALES.pl(0.667), SCALES.pb(0), SCALES.pr(0.334)};
+            margin: ${SCALES.mt(0), SCALES.ml(0), SCALES.mb(0), SCALES.mr(0)};
+            cursor: ${disabled ? 'not-allowed' : 'pointer'};
+            user-select: none;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: border 150ms ease-in 0s, color 200ms ease-out 0s, box-shadow 200ms ease 0s;
+          }
+
+          .value {
+            font-size: var(--select-font-size);
+            color: ${disabled ? tonal.gray_3 : theme.palette.foreground};
+          }
+
+          .placeholder {
+            color: ${placeholderColor};
+          }
             
         `}</style>
       </div>

@@ -13,17 +13,13 @@ export const getStyles = (
   shadow?: boolean,
 ): CardStyles => {
   const styles: { [key in CardType]: Omit<CardStyles, 'borderColor'> } = {
-    primary: {
+    default: {
       color: palette.foreground,
       bgColor: palette.background,
     },
     secondary: {
       color: palette.background,
       bgColor: palette.secondary
-    },
-    tertiary: {
-      color: palette.background,
-      bgColor: palette.tertiary
     },
     success: {
       color: palette.background,

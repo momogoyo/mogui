@@ -1,9 +1,8 @@
 import { tuple } from '@momogoyo/shared'
 
 const cardType = tuple(
-    'primary',
+    'default',
     'secondary',
-    'tertiary',
     'success',
     'warning',
     'error',

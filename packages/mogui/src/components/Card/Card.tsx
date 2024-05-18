@@ -9,7 +9,7 @@ import type { CardProps } from './types'
 const CardComponent = ({
   hoverable = false,
   shadow = false,
-  type = 'primary',
+  type = 'default',
   className = '',
   children,
   ...props

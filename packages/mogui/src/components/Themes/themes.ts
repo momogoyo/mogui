@@ -16,7 +16,7 @@ export const getColors = (
     tertiary: palette.blue,
     success: palette.green,
     warning: palette.yellow,
-    error: palette.red,
+    error: palette.red
   }
 
   const color = mode === 'primary' ? palette.foreground : palette.background

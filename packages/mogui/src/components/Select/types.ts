@@ -1,5 +1,5 @@
-import { tuple } from '@momogoyo/shared'
 import { CSSProperties, MutableRefObject } from 'react'
+import { tuple } from '@momogoyo/shared'
 
 const normalTypes = tuple('default', 'secondary', 'success', 'warning', 'error')
 export type NormalTypes = typeof normalTypes[number]
@@ -47,4 +47,12 @@ export interface SelectConfig {
   updateVisible?: (next: boolean) => unknown
   ref?: MutableRefObject<HTMLElement | null>
   disableAll?: boolean
+}
+
+export interface SelectDropdownProps {
+  visible: boolean
+  className?: string
+  dropdownStyle?: CSSProperties
+  disableMatchWidth?: boolean
+  getPopupContainer?: () => HTMLElement | null
 }

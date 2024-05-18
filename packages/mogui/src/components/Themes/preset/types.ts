@@ -13,12 +13,33 @@ export interface MoguiThemesPalette {
   purple: string
   pink: string
   brown: string
+  gray: string
 
+  redDark: string
+  orangeDark: string
+  yellowDark: string
+  greenDark: string
+  mintDark: string
+  tealDark: string
+  cyanDark: string
+  blueDark: string
+  indigoDark: string
+  purpleDark: string
+  pinkDark: string
+  brownDark: string
+  grayDark: string
+
+  default: string
   secondary: string
-  tertiary: string
   success: string
   warning: string
   error: string
+
+  defaultDark: string
+  secondaryDark: string
+  successDark: string
+  warningDark: string
+  errorDark: string
   
   border: string
   foreground: string
@@ -73,12 +94,19 @@ const colorTypes = tuple(
 export type ColorTypes = typeof colorTypes[number]
 
 export interface MoguiTonal {
-  gray: string
+  gray_1: string
   gray_2: string
   gray_3: string
   gray_4: string
   gray_5: string
   gray_6: string
+
+  grayDark_1: string
+  grayDark_2: string
+  grayDark_3: string
+  grayDark_4: string
+  grayDark_5: string
+  grayDark_6: string
   
   black: string
   white: string
